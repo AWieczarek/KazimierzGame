@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb9000c404abcfd43bc5ec531e948bc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 10
 --- !u!143 &477261947
 CharacterController:
   m_ObjectHideFlags: 0
@@ -383,11 +383,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roadPrefab:
-  - {fileID: 7131947007945736750, guid: 70977751e9779f44ba9ad317d7b48de0, type: 3}
-  - {fileID: 7131947007945736750, guid: 70977751e9779f44ba9ad317d7b48de0, type: 3}
-  - {fileID: 7131947007945736750, guid: 70977751e9779f44ba9ad317d7b48de0, type: 3}
-  - {fileID: 7131947007945736750, guid: 70977751e9779f44ba9ad317d7b48de0, type: 3}
-  - {fileID: 7131947007945736750, guid: 70977751e9779f44ba9ad317d7b48de0, type: 3}
+  - {fileID: 8452414029850319275, guid: 70977751e9779f44ba9ad317d7b48de0, type: 3}
+  - {fileID: 8452414029850319275, guid: 70977751e9779f44ba9ad317d7b48de0, type: 3}
+  - {fileID: 8452414029850319275, guid: 70977751e9779f44ba9ad317d7b48de0, type: 3}
+  - {fileID: 8452414029850319275, guid: 70977751e9779f44ba9ad317d7b48de0, type: 3}
+  - {fileID: 8452414029850319275, guid: 70977751e9779f44ba9ad317d7b48de0, type: 3}
+  - {fileID: 8452414029850319275, guid: 70977751e9779f44ba9ad317d7b48de0, type: 3}
+  - {fileID: 8452414029850319275, guid: 70977751e9779f44ba9ad317d7b48de0, type: 3}
+  - {fileID: 8452414029850319275, guid: 70977751e9779f44ba9ad317d7b48de0, type: 3}
+  - {fileID: 8452414029850319275, guid: 70977751e9779f44ba9ad317d7b48de0, type: 3}
+  - {fileID: 8452414029850319275, guid: 70977751e9779f44ba9ad317d7b48de0, type: 3}
 --- !u!4 &1785417023
 Transform:
   m_ObjectHideFlags: 0
