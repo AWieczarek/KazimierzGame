@@ -21,6 +21,6 @@ public class RoadManager : MonoBehaviour
     public void RecycleRoad(GameObject road)
     {
         road.transform.position = new Vector3(0, 0, zedOffset);
-        zedOffset += 13;
+        zedOffset += 13;    
     }
 }
