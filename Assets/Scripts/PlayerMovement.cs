@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController controller;
     private Transform tf;
     [SerializeField]
-    private float speed = 5.0f;
+    public float speed = 5.0f;
     int x = 2;
     // Start is called before the first frame update
     void Start()
@@ -47,5 +47,10 @@ public class PlayerMovement : MonoBehaviour
                 break;
         }
 
+    }
+
+    public void AdjustSpeed (float newSpeed)
+    {
+        speed = newSpeed;
     }
 }

@@ -6,7 +6,7 @@ public class RoadManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject[] roadPrefab;
-    private int zedOffset;
+    public float zedOffset;
 
     // Start is called before the first frame update
     void Start()
@@ -22,5 +22,10 @@ public class RoadManager : MonoBehaviour
     {
         road.transform.position = new Vector3(0, 0, zedOffset);
         zedOffset += 13;    
+    }
+
+    public void RoadAdjust(float newZedOffset)
+    {
+        zedOffset = newZedOffset;
     }
 }

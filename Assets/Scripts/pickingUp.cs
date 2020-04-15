@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class pickingUp : MonoBehaviour
 {
+
+
 	void OnTriggerEnter(Collider collider)
 	{
 		if (collider.gameObject.tag == "Player")
 		{
-			Debug.Log("Kutaz");
+			GameObject.Find("ScoreBoard").GetComponent<Score>().score += 1;
 			Destroy(gameObject);
 		}
 	}

@@ -11,6 +11,8 @@ public class TreeSpawner : MonoBehaviour
     public GameObject[] treePrefab;
     public GameObject[] NumberOfTrees;
 
+    public float treesLimit = 5;
+
     public float timeBetweenWawes = 0f;
 
     public float timeToSpawn = 1f;
@@ -26,7 +28,7 @@ public class TreeSpawner : MonoBehaviour
         if (Time.time >= timeToSpawn)
         {
             NumberOfTrees = GameObject.FindGameObjectsWithTag("tree");
-            if (NumberOfTrees.Length < 3)
+            if (NumberOfTrees.Length < treesLimit)
             {
                 SpawnTrees();
                 timeToSpawn = Time.time + timeBetweenWawes;
@@ -54,5 +56,10 @@ public class TreeSpawner : MonoBehaviour
     public void RecycleTrees(GameObject trees)
     {
         Destroy(trees);
+    }
+
+    public void AdjustTreeLimit(float newLimit)
+    {
+        treesLimit = newLimit;
     }
 }

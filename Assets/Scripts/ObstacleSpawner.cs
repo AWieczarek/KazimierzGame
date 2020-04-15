@@ -12,6 +12,8 @@ public class ObstacleSpawner : MonoBehaviour
     public GameObject[] NumberOfObstacle;
     public GameObject manholePrefab;
 
+    public float obstaclesLimit = 3;
+
     public float timeBetweenWawes = 0f;
 
     public float timeToSpawn = 1f;
@@ -27,7 +29,7 @@ public class ObstacleSpawner : MonoBehaviour
         if (Time.time >= timeToSpawn)
         {
             NumberOfObstacle = GameObject.FindGameObjectsWithTag("obstacle");
-            if(NumberOfObstacle.Length < 3)
+            if(NumberOfObstacle.Length < obstaclesLimit)
             {
                 SpawnObstacle();
                 timeToSpawn = Time.time + timeBetweenWawes;
@@ -78,5 +80,10 @@ public class ObstacleSpawner : MonoBehaviour
     public void RecycleObstacle(GameObject obstacle)
     {
         Destroy(obstacle);  
+    }
+
+    public void AdjustObstaclesLimit(float newLimit)
+    {
+        obstaclesLimit = newLimit;
     }
 }
