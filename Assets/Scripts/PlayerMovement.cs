@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     {
         
         Vector3 direction = new Vector3(0, 0, 1);
-        Vector3 velocity = direction * speed;
+        Vector3 velocity = new Vector3(0, 0, direction.z * speed);
         controller.Move(velocity * Time.deltaTime);
         
 
