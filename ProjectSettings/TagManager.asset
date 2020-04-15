@@ -6,6 +6,10 @@ TagManager:
   tags:
   - obstacle
   - tree
+  - road
+  - manhole
+  - treeManager
+  - obstacleManager
   layers:
   - Default
   - TransparentFX

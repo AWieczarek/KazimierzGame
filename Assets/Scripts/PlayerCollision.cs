@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
-    void OnCollisionEnter(Collision collisionInfo)
+    public PlayerMovement movement;
+
+
+    void OnControllerColliderHit(ControllerColliderHit hit)
     {
-       Debug.Log("Kajusz chuj");
+       if(hit.collider.tag == "obstacle")
+        {
+            Debug.Log("Kupa");
+            movement.canMove = false;
+        }
     }
 }
