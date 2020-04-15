@@ -40,6 +40,7 @@ public class ObstacleSpawner : MonoBehaviour
     {
         int randomIndex = Random.Range(0, spawnPoints.Length);
         int spawnChance = Random.Range(0, 3);
+        int randomPrefab = Random.Range(0, obstaclePrefab.Length);
 
         for (int i = 0; i < spawnPoints.Length; i++)
         {
@@ -47,13 +48,13 @@ public class ObstacleSpawner : MonoBehaviour
             {
                 if (spawnChance == 0)
                 {
-                    Instantiate(obstaclePrefab[1], spawnPoints[i].position, Quaternion.Euler(-90, 0, 0));
+                    Instantiate(obstaclePrefab[randomPrefab], spawnPoints[i].position, Quaternion.Euler(-90, 0, 0));
 
                     tf.position = new Vector3(tf.position.x, tf.position.y, tf.position.z + 65);
                 }
                 else
                 {
-                    Instantiate(obstaclePrefab[3], spawnPoints[i].position, Quaternion.Euler(-90, 0, 0));
+                    Instantiate(obstaclePrefab[randomPrefab], spawnPoints[i].position, Quaternion.Euler(-90, 0, 0));
                     SpawnManhole(randomIndex);
                     tf.position = new Vector3(tf.position.x, tf.position.y, tf.position.z + 65);
                 }
