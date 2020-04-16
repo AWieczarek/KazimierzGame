@@ -7,9 +7,10 @@ public class GameManager : MonoBehaviour
 {
     bool gameHasEnded = false;
 
-    public GameObject camera;
+    string sceneId;
 
-   public void EndGame()
+
+    public void EndGame()
     {
         if(gameHasEnded == false)
         {
@@ -20,6 +21,19 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(3);
         }
         
+    }
+
+    public void EndGameDevelopers()
+    {
+        if (gameHasEnded == false)
+        {
+            gameHasEnded = true;
+            Debug.Log("Przegraleś");
+            Time.timeScale = 0;
+            //Restart();
+            SceneManager.LoadScene(4);
+        }
+
     }
 
     public void StartGameForDevelopers()
@@ -38,14 +52,16 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1.0f;
     }
 
+    public void RestartDeveloper()
+    {
+        SceneManager.LoadScene(2);
+        Time.timeScale = 1.0f;
+    }
+
     public void Quit()
     {
         Debug.Log("Quit");
         Application.Quit();
     }
 
-    public void changeCamera()
-    {
-        
-    }
 }
