@@ -11,8 +11,8 @@ public class PlayerCollision : MonoBehaviour
     {
        if(hit.collider.tag == "obstacle")
         {
-            Debug.Log("Kupa");
-            movement.canMove = false;
+            movement.enabled = false;
+            FindObjectOfType<GameManager>().EndGame();
         }
     }
 }
