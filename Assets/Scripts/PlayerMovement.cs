@@ -9,8 +9,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     public float speed = 5.0f;
     int x = 2;
+    int y = 0;
     public bool canMove = true;
 
+    public Animator animator;
+        
     // Start is called before the first frame update
     void Start()
     {
@@ -22,22 +25,34 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
         Vector3 direction = new Vector3(0, 0, 1);
         Vector3 velocity = new Vector3(0, 0, direction.z * speed);
         controller.Move(velocity * Time.deltaTime);
 
+        ResetTriggers();
 
         if (canMove)
         {
+
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                x++;
+                if (x < 3)
+                {
+                    x++;
+                    animator.SetTrigger("Right");
+                }
             }
             else if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                x--;
+                if (x > 1)
+                {
+                    x--;
+                    animator.SetTrigger("Left");
+                }
             }
+
+
 
             switch (x)
             {
@@ -54,6 +69,12 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
+    }
+
+    public void ResetTriggers()
+    {
+        animator.ResetTrigger("Right");
+        animator.ResetTrigger("Left");
     }
 
     public void AdjustSpeed (float newSpeed)
