@@ -6,22 +6,22 @@ using System.Threading;
 public class ObstacleSpawner : MonoBehaviour
 {
     public Transform[] spawnPoints;
-    public Transform player;
-    private Transform tf;
+    public Transform playerPosition;
+    private Transform obstaclePosition ;
     public GameObject[] obstaclePrefab;
     public GameObject[] NumberOfObstacle;
     public GameObject manholePrefab;
 
     public float obstaclesLimit = 3;
 
-    public float timeBetweenWawes = 0f;
+    [SerializeField] private float timeBetweenWawes = 0f;
 
-    public float timeToSpawn = 1f;
+    [SerializeField] private float timeToSpawn = 1f;
 
     void Start()
     {
-        tf = GetComponent<Transform>();
-        player = GetComponent<Transform>();
+        obstaclePosition = GetComponent<Transform>();
+        playerPosition = GetComponent<Transform>();
     }
 
     private void Update()
@@ -52,13 +52,13 @@ public class ObstacleSpawner : MonoBehaviour
                 {
                     Instantiate(obstaclePrefab[randomPrefab], spawnPoints[i].position, Quaternion.Euler(-90, 0, 0));
 
-                    tf.position = new Vector3(tf.position.x, tf.position.y, tf.position.z + 65);
+                    obstaclePosition.position = new Vector3(obstaclePosition.position.x, obstaclePosition.position.y, obstaclePosition.position.z + 65);
                 }
                 else
                 {
                     Instantiate(obstaclePrefab[randomPrefab], spawnPoints[i].position, Quaternion.Euler(-90, 0, 0));
                     SpawnManhole(randomIndex);
-                    tf.position = new Vector3(tf.position.x, tf.position.y, tf.position.z + 65);
+                    obstaclePosition.position = new Vector3(obstaclePosition.position.x, obstaclePosition.position.y, obstaclePosition.position.z + 65);
                 }
             }
         }

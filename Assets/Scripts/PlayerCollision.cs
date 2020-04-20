@@ -6,7 +6,6 @@ public class PlayerCollision : MonoBehaviour
 {
     public PlayerMovement movement;
 
-
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
        if(hit.collider.tag == "obstacle")

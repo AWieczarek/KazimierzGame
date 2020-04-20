@@ -11,11 +11,12 @@ public class TreeSpawner : MonoBehaviour
     public GameObject[] treePrefab;
     public GameObject[] NumberOfTrees;
 
+    [Header("Varibles")]
     public float treesLimit = 5;
 
-    public float timeBetweenWawes = 0f;
+    [SerializeField] private float timeBetweenWawes = 0f;
 
-    public float timeToSpawn = 1f;
+    [SerializeField] private float timeToSpawn = 1f;
 
     void Start()
     {

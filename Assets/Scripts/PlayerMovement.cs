@@ -5,22 +5,19 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private CharacterController controller;
-    private Transform tf;
+    private Transform playerPosition;
     [SerializeField]
     public float speed = 5.0f;
-    int x = 2;
-    int y = 0;
-    public bool canMove = true;
-
+    private int positionID = 2;
+    private bool canMove = true;
     public Animator animator;
-
     public SwipeInput input;
         
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        tf = GetComponent<Transform>();
+        playerPosition = GetComponent<Transform>();
         input = gameObject.GetComponent<SwipeInput>();
     }
 
@@ -37,35 +34,27 @@ public class PlayerMovement : MonoBehaviour
         if (canMove)
         {
 
-            if (Input.GetKeyDown(KeyCode.RightArrow) || input.SwipeRight)
+            if ((Input.GetKeyDown(KeyCode.RightArrow) || input.SwipeRight) && positionID < 3)
             {
-                if (x < 3)
-                {
-                    x++;
-                    animator.SetTrigger("Right");
-                }
+                positionID++;
+                animator.SetTrigger("Right");
             }
-            else if (Input.GetKeyDown(KeyCode.LeftArrow) || input.SwipeLeft)
+            else if ((Input.GetKeyDown(KeyCode.LeftArrow) || input.SwipeLeft) && positionID > 1)
             {
-                if (x > 1)
-                {
-                    x--;
-                    animator.SetTrigger("Left");
-                }
+                positionID--;
+                animator.SetTrigger("Left");
             }
 
-
-
-            switch (x)
+            switch (positionID)
             {
                 case 1:
-                    tf.position = new Vector3(-2.5f, tf.position.y, tf.position.z);
+                    playerPosition.position = new Vector3(-2.5f, playerPosition.position.y, playerPosition.position.z);
                     break;
                 case 2:
-                    tf.position = new Vector3(0f, tf.position.y, tf.position.z);
+                    playerPosition.position = new Vector3(0f, playerPosition.position.y, playerPosition.position.z);
                     break;
                 case 3:
-                    tf.position = new Vector3(2.5f, tf.position.y, tf.position.z);
+                    playerPosition.position = new Vector3(2.5f, playerPosition.position.y, playerPosition.position.z);
                     break;
             }
 

@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class RoadManager : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject[] roadPrefab;
-    public float zedOffset;
-
-    // Start is called before the first frame update
+    public GameObject[] roadPrefab;
+    private float zedOffset;
     void Start()
     {
         for (int i = 0; i < roadPrefab.Length; i++)
@@ -24,8 +21,4 @@ public class RoadManager : MonoBehaviour
         zedOffset += 13;    
     }
 
-    public void RoadAdjust(float newZedOffset)
-    {
-        zedOffset = newZedOffset;
-    }
 }

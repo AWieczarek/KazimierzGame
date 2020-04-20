@@ -5,18 +5,18 @@ using TMPro;
 
 public class TreesLimit: MonoBehaviour
 {
-    public GameObject manager;
-    public TextMeshProUGUI limit;
+    public GameObject treeManager;
+    public TextMeshProUGUI text;
 
     void Start()
     {
-        limit = GetComponent<TextMeshProUGUI>();
-        manager = GameObject.FindGameObjectWithTag("treeManager");
+        text = GetComponent<TextMeshProUGUI>();
+        treeManager = GameObject.FindGameObjectWithTag("treeManager");
     }
 
     // Update is called once per frame
     void Update()
     {
-        limit.text = manager.GetComponent<TreeSpawner>().treesLimit.ToString();
+        text.text = treeManager.GetComponent<TreeSpawner>().treesLimit.ToString();
     }
 }

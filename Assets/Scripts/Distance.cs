@@ -5,19 +5,20 @@ using TMPro;
 
 public class Distance : MonoBehaviour
 {
-    public TextMeshProUGUI distance;
-    public Transform tf;
-
+    public TextMeshProUGUI text;
+    public Transform playerPosition;
+    
     void Start()
     {
-        distance = GetComponent<TextMeshProUGUI>();
+        text = GetComponent<TextMeshProUGUI>();
 
     }
+    
 
     // Update is called once per frame
     void Update()
     {
-        float finalDistance = tf.position.z / 100;
-        distance.text = finalDistance.ToString("F") + "km";
+        float finalDistance = playerPosition.position.z / 100;
+        text.text = finalDistance.ToString("F") + "km";
     }
 }
