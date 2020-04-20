@@ -13,13 +13,15 @@ public class PlayerMovement : MonoBehaviour
     public bool canMove = true;
 
     public Animator animator;
+
+    public SwipeInput input;
         
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
         tf = GetComponent<Transform>();
-        
+        input = gameObject.GetComponent<SwipeInput>();
     }
 
     // Update is called once per frame
@@ -35,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
         if (canMove)
         {
 
-            if (Input.GetKeyDown(KeyCode.RightArrow))
+            if (Input.GetKeyDown(KeyCode.RightArrow) || input.SwipeRight)
             {
                 if (x < 3)
                 {
@@ -43,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
                     animator.SetTrigger("Right");
                 }
             }
-            else if (Input.GetKeyDown(KeyCode.LeftArrow))
+            else if (Input.GetKeyDown(KeyCode.LeftArrow) || input.SwipeLeft)
             {
                 if (x > 1)
                 {

@@ -7,8 +7,6 @@ public class GameManager : MonoBehaviour
 {
     bool gameHasEnded = false;
 
-    public GameObject camera;
-
    public void EndGame()
     {
         if(gameHasEnded == false)
