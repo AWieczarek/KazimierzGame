@@ -1,151 +1,94 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
-public class SwipeInput : MonoBehaviour
-{
-    #region Instance
-    private static SwipeInput instance;
-    public static SwipeInput Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = FindObjectOfType<SwipeInput>();
-                if (instance == null)
-                {
-                    instance = new GameObject("Spawned SwipeInput", typeof(SwipeInput)).GetComponent<SwipeInput>();
-                }
-            }
-            return instance;
-        }
-        set
-        {
-            instance = value;
-        }
-    }
-    #endregion
+public class SwipeInput : MonoBehaviour {
+private Vector2 fingerDown;
+    private Vector2 fingerUp;
+    public bool detectSwipeOnlyAfterRelease = false;
 
-    [Header("Tweaks")]
-    [SerializeField] private float deadzone = 100.0f;
-    [SerializeField] private float doubleTapDelta = 0.5f;
+    public float SWIPE_THRESHOLD = 20f;
+	
+	private bool tap, doubleTap, swipeLeft, swipeRight, swipeUp, swipeDown;
 
-    [Header("Logic")]
-    private bool tap, doubleTap, swipeLeft, swipeRight, swipeUp, swipeDown;
-    private Vector2 swipeDelta, startTouch;
-    private float lastTap;
-    private float sqrDeadzone;
+	public bool Tap{get{return tap;}}
+    public bool DubleTap{get{return doubleTap;}}
+    public bool SwipeLeft {get{return swipeLeft;}}
+    public bool SwipeRight {get{return swipeRight;}}
+    public bool SwipeUp {get{return swipeUp;}}
+    public bool SwipeDown {get{return swipeDown;}}
 
-    #region Public properties
-    public bool Tap { get { return tap; } }
-    public bool DubleTap { get { return doubleTap; } }
-    public Vector2 SwipeDelta { get { return swipeDelta; } }
-    public bool SwipeLeft { get { return swipeLeft; } }
-    public bool SwipeRight { get { return swipeRight; } }
-    public bool SwipeUp { get { return swipeUp; } }
-    public bool SwipeDown { get { return swipeDown; } }
-    #endregion
-
-    void Start()
-    {
-        sqrDeadzone = deadzone * deadzone;
-    }
-
+    // Update is called once per frame
     void Update()
     {
-        tap = doubleTap = swipeLeft = swipeRight = swipeUp = swipeDown = false;
+		tap = doubleTap = swipeLeft = swipeRight = swipeUp = swipeDown = false;
 
-#if UNITY_EDITOR
-        UpdateStandalone();
-#else
-        UpdateMobile();
-#endif
+        foreach (Touch touch in Input.touches)
+        {
+            if (touch.phase == TouchPhase.Began)
+            {
+                fingerUp = touch.position;
+                fingerDown = touch.position;
+            }
+            /*
+            //Detects Swipe while finger is still moving
+            if (touch.phase == TouchPhase.Moved)
+            {
+                if (!detectSwipeOnlyAfterRelease)
+                {
+                    fingerDown = touch.position;
+                    checkSwipe();
+                }
+            }
+            */
+            //Detects swipe after finger is released
+            if (touch.phase == TouchPhase.Ended)
+            {
+                fingerDown = touch.position;
+                checkSwipe();
+            }
+        }
     }
 
-    private void UpdateStandalone()
+    void checkSwipe()
     {
-        if (Input.GetMouseButtonDown(0))
+        //Check if Vertical swipe
+        if (verticalMove() > SWIPE_THRESHOLD && verticalMove() > horizontalValMove())
         {
-            tap = true;
-            startTouch = Input.mousePosition;
-            doubleTap = Time.time - lastTap < doubleTapDelta;
-            lastTap = Time.time;
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            startTouch = swipeDelta = Vector2.zero;
-        }
-
-        swipeDelta = Vector2.zero;
-
-        if (startTouch != Vector2.zero && Input.GetMouseButton(0))
-        {
-            swipeDelta = (Vector2)Input.mousePosition - startTouch;
-        }
-
-        if (swipeDelta.sqrMagnitude > sqrDeadzone)
-        {
-            float x = swipeDelta.x;
-            float y = swipeDelta.y;
-            if (Mathf.Abs(x) > Mathf.Abs(y))
+            if (fingerDown.y - fingerUp.y > 0)//up swipe
             {
-                if (x < 0)
-                    swipeLeft = true;
-                else
-                    swipeRight = true;
+				swipeUp = true;
             }
-            else
+            else if (fingerDown.y - fingerUp.y < 0)//Down swipe
             {
-                if (y < 0)
-                    swipeDown = true;
-                else
-                    swipeUp = true;
+				swipeDown = true;
             }
-            startTouch = swipeDelta = Vector2.zero;
+            fingerUp = fingerDown;
+        }
+
+        //Check if Horizontal swipe
+        else if (horizontalValMove() > SWIPE_THRESHOLD && horizontalValMove() > verticalMove())
+        {
+            if (fingerDown.x - fingerUp.x > 0)//Right swipe
+            {
+				swipeRight = true;
+            }
+            else if (fingerDown.x - fingerUp.x < 0)//Left swipe
+            {
+				swipeLeft = true;
+            }
+            fingerUp = fingerDown;
         }
     }
 
-    private void UpdateMobile()
+    float verticalMove()
     {
-        if (Input.touches.Length != 0)
-        {
-            tap = true;
-            startTouch = Input.mousePosition;
-            doubleTap = Time.time - lastTap < doubleTapDelta;
-            lastTap = Time.time;
-        }
-        else if (Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled)
-        {
-            startTouch = swipeDelta = Vector2.zero;
-        }
-
-        swipeDelta = Vector2.zero;
-
-        if (startTouch != Vector2.zero && Input.touches.Length != 0)
-        {
-            swipeDelta = Input.touches[0].position - startTouch;
-        }
-
-        if (swipeDelta.sqrMagnitude > sqrDeadzone)
-        {
-            float x = swipeDelta.x;
-            float y = swipeDelta.y;
-            if (Mathf.Abs(x) > Mathf.Abs(y))
-            {
-                if (x < 0)
-                    swipeLeft = true;
-                else
-                    swipeRight = true;
-            }
-            else
-            {
-                if (y < 0)
-                    swipeDown = true;
-                else
-                    swipeUp = true;
-            }
-            startTouch = swipeDelta = Vector2.zero;
-        }
+        return Mathf.Abs(fingerDown.y - fingerUp.y);
     }
+
+    float horizontalValMove()
+    {
+        return Mathf.Abs(fingerDown.x - fingerUp.x);
+    }
+
+
 }

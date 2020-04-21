@@ -9,13 +9,12 @@ public class GameManager : MonoBehaviour
     public GameObject EndScreenUI;
     public GameObject DevMenu;
 
-    public GameObject Image;
 
     private void Update() {
         if(Input.GetMouseButtonDown(0))
         {
             
-            if(Input.mousePosition.y > 180 && DevMenu.activeSelf)
+            if(Input.mousePosition.y > Screen.height/3 && DevMenu.activeSelf)
             {
                 DevMenu.SetActive(false);
             }
