@@ -10,6 +10,7 @@ public class PlayerCollision : MonoBehaviour
     {
        if(hit.collider.tag == "obstacle")
         {
+            FindObjectOfType<AudioManager>().Play("Kurwa");
             movement.enabled = false;
             FindObjectOfType<GameManager>().EndGame();
         }

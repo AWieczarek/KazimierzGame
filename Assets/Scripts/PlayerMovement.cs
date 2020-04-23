@@ -37,11 +37,13 @@ public class PlayerMovement : MonoBehaviour
             if ((Input.GetKeyDown(KeyCode.RightArrow) || input.SwipeRight) && positionID < 3)
             {
                 positionID++;
+                FindObjectOfType<AudioManager>().Play("Ziu");
                 animator.SetTrigger("Right");
             }
             else if ((Input.GetKeyDown(KeyCode.LeftArrow) || input.SwipeLeft) && positionID > 1)
             {
                 positionID--;
+                FindObjectOfType<AudioManager>().Play("Ziu");
                 animator.SetTrigger("Left");
             }
 

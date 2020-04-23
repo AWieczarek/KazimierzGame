@@ -2,6 +2,29 @@
 using System.Collections;
 
 public class SwipeInput : MonoBehaviour {
+
+    #region Instance
+    private static SwipeInput instance;
+    public static SwipeInput Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<SwipeInput>();
+                if (instance == null)
+                {
+                    instance = new GameObject("Spawned SwipeInput", typeof(SwipeInput)).GetComponent<SwipeInput>();
+                }
+            }
+            return instance;
+        }
+        set
+        {
+            instance = value;
+        }
+    }
+    #endregion
 private Vector2 fingerDown;
     private Vector2 fingerUp;
     public bool detectSwipeOnlyAfterRelease = false;
@@ -20,7 +43,17 @@ private Vector2 fingerDown;
     // Update is called once per frame
     void Update()
     {
-		tap = doubleTap = swipeLeft = swipeRight = swipeUp = swipeDown = false;
+        tap = doubleTap = swipeLeft = swipeRight = swipeUp = swipeDown = false;
+
+        UpdateMobile();
+    }
+
+    
+
+
+    private void UpdateMobile()
+    {
+
 
         foreach (Touch touch in Input.touches)
         {
@@ -28,19 +61,9 @@ private Vector2 fingerDown;
             {
                 fingerUp = touch.position;
                 fingerDown = touch.position;
+
             }
-            /*
-            //Detects Swipe while finger is still moving
-            if (touch.phase == TouchPhase.Moved)
-            {
-                if (!detectSwipeOnlyAfterRelease)
-                {
-                    fingerDown = touch.position;
-                    checkSwipe();
-                }
-            }
-            */
-            //Detects swipe after finger is released
+
             if (touch.phase == TouchPhase.Ended)
             {
                 fingerDown = touch.position;

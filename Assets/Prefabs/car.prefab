@@ -232,9 +232,7 @@ GameObject:
   - component: {fileID: 3421527392346818785}
   - component: {fileID: 3421527392346818789}
   - component: {fileID: 6343417838378444371}
-  - component: {fileID: 17663264497102799}
-  - component: {fileID: 3421527393924493821}
-  - component: {fileID: 3421527393924493819}
+  - component: {fileID: 7524864383676653360}
   m_Layer: 0
   m_Name: car
   m_TagString: Player
@@ -305,7 +303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   animator: {fileID: 3421527392300755146}
-  input: {fileID: 3421527393924493821}
+  input: {fileID: 7524864383676653360}
 --- !u!114 &6343417838378444371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,7 +317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 3421527392346818789}
---- !u!114 &17663264497102799
+--- !u!114 &7524864383676653360
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -331,35 +329,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 810a1483d9655c8428b8917abc300024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deadzone: 100
-  doubleTapDelta: 0.5
---- !u!114 &3421527393924493821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6654728289734635259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 810a1483d9655c8428b8917abc300024, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deadzone: 200
-  doubleTapDelta: 0.5
---- !u!114 &3421527393924493819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6654728289734635259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2470b02122745a84daa62dda2e1863c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movement: {fileID: 3421527392346818789}
+  detectSwipeOnlyAfterRelease: 0
+  SWIPE_THRESHOLD: 20
 --- !u!1 &7403026067036389424
 GameObject:
   m_ObjectHideFlags: 0

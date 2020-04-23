@@ -11,6 +11,7 @@ public class pickingUp : MonoBehaviour
 		if (collider.gameObject.tag == "Player")
 		{
 			GameObject.Find("ScoreBoard").GetComponent<Score>().score += 1;
+			FindObjectOfType<AudioManager>().Play("Manhole");
 			Destroy(gameObject);
 		}
 	}

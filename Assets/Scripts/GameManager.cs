@@ -31,9 +31,15 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void StartGameForDevelopers(){ SceneManager.LoadScene(2); }
+    public void StartGameForDevelopers(){ 
+        SceneManager.LoadScene(2); 
+        Time.timeScale = 1.0f;
+        }
 
-    public void StartGame(){ SceneManager.LoadScene(1); }
+    public void StartGame(){ 
+        SceneManager.LoadScene(1); 
+        Time.timeScale = 1.0f;
+    }
 
     public void Restart()
     {
