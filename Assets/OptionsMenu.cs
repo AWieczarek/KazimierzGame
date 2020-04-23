@@ -7,7 +7,7 @@ public class OptionsMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Log("Kupa");
     }
 
     // Update is called once per frame
