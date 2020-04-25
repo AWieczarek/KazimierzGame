@@ -9,7 +9,18 @@ public class GameManager : MonoBehaviour
     public GameObject EndScreenUI;
     public GameObject DevMenu;
 
+    public static GameManager instance;
 
+    private void Awake() {
+        if(instance == null)
+            instance = this;
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+    }
     private void Update() {
         if(Input.GetMouseButtonDown(0))
         {

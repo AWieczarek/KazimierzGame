@@ -31,7 +31,7 @@ public class OptionsMenu : MonoBehaviour
 
     public void BackToGame()
     {
-        Time.timeScale = 1.0f;
+
         optionsMenuUI.SetActive(false);
     }
 
