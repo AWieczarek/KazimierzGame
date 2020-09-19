@@ -11,6 +11,10 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
 
+    public Animator transmition;
+
+    public float transitionTime = 1f;
+
     private void Awake() {
         if(instance == null)
             instance = this;
@@ -42,25 +46,29 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void StartGameForDevelopers(){ 
-        SceneManager.LoadScene(2); 
+    public void StartGameForDevelopers(){
+        StartCoroutine(LoadLevel(2));
+        //SceneManager.LoadScene(2); 
         Time.timeScale = 1.0f;
         }
 
-    public void StartGame(){ 
-        SceneManager.LoadScene(1); 
+    public void StartGame(){
+        StartCoroutine(LoadLevel(1));
+        //SceneManager.LoadScene(1); 
         Time.timeScale = 1.0f;
     }
 
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex));
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1.0f;
     }
 
     public void Menu()
     {
-        SceneManager.LoadScene(0);
+        StartCoroutine(LoadLevel(0));
+        //SceneManager.LoadScene(0);
         Time.timeScale = 1.0f;
     }
 
@@ -79,4 +87,11 @@ public class GameManager : MonoBehaviour
     {
         DevMenu.SetActive(true);
     }
+
+    IEnumerator LoadLevel(int levelIndex)
+	{
+        transmition.SetTrigger("Transmition");
+        yield return new WaitForSeconds(transitionTime);
+        SceneManager.LoadScene(levelIndex);
+	}
 }
