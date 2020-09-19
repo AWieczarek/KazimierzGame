@@ -25,14 +25,15 @@ public class OptionsMenu : MonoBehaviour
 
     public void Options()
     {
+        menuUI.SetActive(false);
         optionsMenuUI.SetActive(true);
         Time.timeScale = 0f;
     }
 
     public void BackToGame()
     {
-
         optionsMenuUI.SetActive(false);
+        menuUI.SetActive(true);
     }
 
     public void BackToStart()
