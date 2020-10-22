@@ -12,6 +12,10 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public Animator transmition;
+    public Animator menu;
+    public Animator camera;
+
+    public bool isAnimation = false;
 
     public float transitionTime = 1f;
 
@@ -25,7 +29,8 @@ public class GameManager : MonoBehaviour
         }
 
     }
-    private void Update() {
+
+	private void Update() {
         if(Input.GetMouseButtonDown(0))
         {
             
@@ -33,6 +38,14 @@ public class GameManager : MonoBehaviour
             {
                 DevMenu.SetActive(false);
             }
+        }
+        
+        if(isAnimation)
+		{
+            menu.speed = 0f;
+            menu.Play("StartMenuAnimation", 0, 1.0f);
+            camera.speed = 0f;
+            camera.Play("CameraAnimation", 0, 1.0f);
         }
     }
    public void EndGame()
@@ -93,5 +106,10 @@ public class GameManager : MonoBehaviour
         transmition.SetTrigger("Transmition");
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(levelIndex);
+	}
+
+    public void PlayAnimation()
+	{
+        isAnimation = true;
 	}
 }
