@@ -8,6 +8,7 @@ public class OptionsMenu : MonoBehaviour
     public AudioMixer audioMixer;
     public GameObject pauseMenuUI;
     public GameObject optionsMenuUI;
+    public GameObject CreditsUI;
 
     public GameObject menuUI;
 
@@ -28,6 +29,18 @@ public class OptionsMenu : MonoBehaviour
         menuUI.SetActive(false);
         optionsMenuUI.SetActive(true);
         Time.timeScale = 0f;
+    }
+    public void Credits()
+    {
+        menuUI.SetActive(false);
+        CreditsUI.SetActive(true);
+        //Time.timeScale = 0f;
+    }
+
+    public void BackToGameCredits()
+    {
+        CreditsUI.SetActive(false);
+        menuUI.SetActive(true);
     }
 
     public void BackToGame()

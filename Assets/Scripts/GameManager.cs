@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
     bool gameHasEnded = false;
     public GameObject EndScreenUI;
     public GameObject DevMenu;
-
     public static GameManager instance;
 
     public Animator transmition;
