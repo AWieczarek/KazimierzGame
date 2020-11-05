@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
 
     public float transitionTime = 1f;
 
+    public GameObject Car;
+
     private void Awake() {
         if(instance == null)
             instance = this;
@@ -26,11 +28,11 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
     }
 
 	private void Update() {
-        if(Input.GetMouseButtonDown(0))
+        Car.GetComponent<Renderer>().materials[1].color = GameObject.Find("AudioManager").GetComponent<AudioManager>().carColor;
+        if (Input.GetMouseButtonDown(0))
         {
             
             if(Input.mousePosition.y > Screen.height/3 && DevMenu.activeSelf)

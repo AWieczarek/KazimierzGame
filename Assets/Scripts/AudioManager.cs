@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    
+    public Color carColor;
     public Sound[] sounds;
 
     public static AudioManager instance;

@@ -9,6 +9,7 @@ public class OptionsMenu : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject optionsMenuUI;
     public GameObject CreditsUI;
+    public GameObject shopUI;
 
     public GameObject menuUI;
 
@@ -36,10 +37,21 @@ public class OptionsMenu : MonoBehaviour
         CreditsUI.SetActive(true);
         //Time.timeScale = 0f;
     }
+    public void Shop()
+    {
+        menuUI.SetActive(false);
+        shopUI.SetActive(true);
+        //Time.timeScale = 0f;
+    }
 
     public void BackToGameCredits()
     {
         CreditsUI.SetActive(false);
+        menuUI.SetActive(true);
+    }
+    public void BackToGameShop()
+    {
+        shopUI.SetActive(false);
         menuUI.SetActive(true);
     }
 
