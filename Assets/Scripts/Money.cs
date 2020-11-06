@@ -7,7 +7,6 @@ public class Money : MonoBehaviour
 {
     public int money = 50;
     public TextMeshProUGUI text;
-
     public bool Blue = false;
     public bool Green = false;
     public bool Orange = false;
