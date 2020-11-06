@@ -34,7 +34,8 @@ public class AudioManager : MonoBehaviour
     private void Start() 
     {
         Play("Theme");
-        
+        var storedColorAsString = "#" + PlayerPrefs.GetString("CarColor");
+        ColorUtility.TryParseHtmlString(storedColorAsString, out carColor);
     }
 
     public void Play (string name)
