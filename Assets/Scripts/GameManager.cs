@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
         {
             gameHasEnded = true;
             Time.timeScale = 0;
+            GameObject.Find("DistanceBoard").GetComponent<Distance>().UpdateHDistance();
             EndScreenUI.SetActive(true);
         }
         
