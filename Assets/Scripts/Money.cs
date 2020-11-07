@@ -7,38 +7,23 @@ public class Money : MonoBehaviour
 {
     public int money = 50;
     public TextMeshProUGUI text;
-    public bool Blue = false;
-    public bool Green = false;
-    public bool Orange = false;
-    public bool Purple = false;
-    public bool Pink = false;
-    public bool Yellow = false;
-
-	private void Start()
+    public string[,] Colours = new string [6,2]{
+        {"Blue", "0"},
+        {"Yellow", "0"},
+        {"Pink", "0"},
+        {"Orange", "0"},
+        {"Purple", "0"},
+        {"Green", "0"},
+    };
+//
+    private void Start()
 	{
-        if(PlayerPrefs.GetInt("Blue") != 0)
+        for(int i = 0; i<6; i++)
 		{
-            Blue = true;
-        }
-        if(PlayerPrefs.GetInt("Green") != 0)
-        {
-            Green = true;
-        }
-        if (PlayerPrefs.GetInt("Pink") != 0)
-        {
-            Pink = true;
-        }
-        if (PlayerPrefs.GetInt("Purple") != 0)
-        {
-            Purple = true;
-        }
-        if (PlayerPrefs.GetInt("Yellow") != 0)
-        {
-            Yellow = true;
-        }
-        if (PlayerPrefs.GetInt("Orange") != 0)
-        {
-            Orange = true;
+            if (PlayerPrefs.GetInt(Colours[i, 0]) != 0)
+            {
+                Colours[i, 1] = "1";
+            }
         }
         money = PlayerPrefs.GetInt("money", 0);
     }
@@ -50,65 +35,25 @@ public class Money : MonoBehaviour
 
     public void Buy(string colour)
 	{
-        
-        if(colour == "Blue")
-		{
-            Blue = true;
-            PlayerPrefs.SetInt("Blue", (Blue ? 1 : 0));
-        }
-        if (colour == "Green")
+        for (int i = 0; i < 6; i++)
         {
-            Green = true;
-            PlayerPrefs.SetInt("Green", (Green ? 1 : 0));
-        }
-        if (colour == "Purple")
-        {
-            Purple = true;
-            PlayerPrefs.SetInt("Purple", (Purple ? 1 : 0));
-        }
-        if (colour == "Pink")
-        {
-            Pink = true;
-            PlayerPrefs.SetInt("Pink", (Pink ? 1 : 0));
-        }
-        if (colour == "Yellow")
-        {
-            Yellow = true;
-            PlayerPrefs.SetInt("Yellow", (Yellow ? 1 : 0));
-        }
-        if (colour == "Orange")
-        {
-            Orange = true;
-            PlayerPrefs.SetInt("Orange", (Orange ? 1 : 0));
+            if (colour == Colours[i,0])
+            {
+                Colours[i, 1] = "1";
+                PlayerPrefs.SetInt(colour, 1);
+            }
         }
         PlayerPrefs.SetInt("money", money);
     }
 
     public bool Checker(string color)
 	{
-        if (color == "Blue")
+        for (int i = 0; i < 6; i++)
         {
-            return Blue;
-        }
-        if (color == "Green")
-        {
-            return Green;
-        }
-        if (color == "Purple")
-        {
-            return Purple;
-        }
-        if (color == "Pink")
-        {
-            return Pink;
-        }
-        if (color == "Yellow")
-        {
-            return Yellow;
-        }
-        if (color == "Orange")
-        {
-            return Orange;
+            if (color == Colours[i, 0])
+            {
+                return System.Convert.ToBoolean(Colours[i, 1] == "1" ? 1 : 0);
+            }
         }
         return false;
     }
