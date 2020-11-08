@@ -12,21 +12,23 @@ public class PlayerMovement : MonoBehaviour
     private bool canMove = true;
     public Animator animator;
     public SwipeInput input;
-        
+
+    public float bonus = 1.0f;
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
         playerPosition = GetComponent<Transform>();
         input = gameObject.GetComponent<SwipeInput>();
+        bonus = PlayerPrefs.GetFloat("bonus");
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
         Vector3 direction = new Vector3(0, 0, 1);
-        Vector3 velocity = new Vector3(0, 0, direction.z * speed);
+        Vector3 velocity = new Vector3(0, 0, direction.z * speed * bonus);
         controller.Move(velocity * Time.deltaTime);
 
         ResetTriggers();

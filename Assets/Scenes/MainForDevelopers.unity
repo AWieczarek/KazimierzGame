@@ -2499,8 +2499,11 @@ MonoBehaviour:
   - {fileID: 1296198054963878, guid: f76595434879f634c8b88f3cc4f08b2c, type: 3}
   - {fileID: 1923948107188124, guid: f16d978b3d1fa984d82c01d30a1fb40a, type: 3}
   - {fileID: 1923948107188124, guid: f16d978b3d1fa984d82c01d30a1fb40a, type: 3}
-  manholePrefab: {fileID: 673042384859517459, guid: c260db87f88f2ef41af90b052f9fef58,
-    type: 3}
+  pickupPrefab:
+  - {fileID: 673042384859517459, guid: c260db87f88f2ef41af90b052f9fef58, type: 3}
+  - {fileID: 7695664471191212192, guid: 2fa59383e5748394ea6694b58c354a91, type: 3}
+  - {fileID: 2369881871970069991, guid: cf2af687ba18141429b259aab5bfbe47, type: 3}
+  - {fileID: 3678231308510824416, guid: 719e5f347c18faa45bcb611ffdab8cbe, type: 3}
   obstaclesLimit: 3
   timeToSpawn: 0
   distanceBetweenWawes: 20
@@ -6024,7 +6027,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1078914058}
-  m_LocalRotation: {x: 0.18014748, y: 0.000000025872211, z: -0.0000000057350986, w: 0.98363966}
+  m_LocalRotation: {x: 0.18014748, y: 0.00000002587231, z: -0.0000000057356377, w: 0.98363966}
   m_LocalPosition: {x: 0, y: 8.61, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -7834,7 +7837,6 @@ GameObject:
   - component: {fileID: 1451117569}
   - component: {fileID: 1451117572}
   - component: {fileID: 1451117571}
-  - component: {fileID: 1451117570}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -7861,18 +7863,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -92.522}
   m_SizeDelta: {x: 166.91724, y: 25.221832}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1451117570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1451117568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea5d222c0ab228a4899082893fe9205c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1451117571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9777,7 +9767,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629755189}
-  m_LocalRotation: {x: 0.18014748, y: 0.000000025872211, z: -0.0000000057350986, w: 0.98363966}
+  m_LocalRotation: {x: 0.18014748, y: 0.00000002587231, z: -0.0000000057356377, w: 0.98363966}
   m_LocalPosition: {x: 0, y: 8.61, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -10043,12 +10033,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: 200
   text: {fileID: 366870789}
-  Blue: 0
-  Green: 0
-  Orange: 0
-  Purple: 0
-  Pink: 0
-  Yellow: 0
 --- !u!114 &1701891125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12501,11 +12485,21 @@ PrefabInstance:
       propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3421527392346818786, guid: 60824fd70e59f4c4a992a93b5f7006fa,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3421527392346818789, guid: 60824fd70e59f4c4a992a93b5f7006fa,
         type: 3}
       propertyPath: input
       value: 
       objectReference: {fileID: 267938670}
+    - target: {fileID: 3421527392346818789, guid: 60824fd70e59f4c4a992a93b5f7006fa,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6654728289734635259, guid: 60824fd70e59f4c4a992a93b5f7006fa,
         type: 3}
       propertyPath: m_Name
