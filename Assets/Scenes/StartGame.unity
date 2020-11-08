@@ -7654,12 +7654,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: 200
   text: {fileID: 332405191}
-  Blue: 0
-  Green: 0
-  Orange: 0
-  Purple: 0
-  Pink: 0
-  Yellow: 0
 --- !u!1 &1237642354 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8312697073994728367, guid: c49fa30225e00ca41b4214b7a0f33d9f,
@@ -11132,7 +11126,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1804067756
 RectTransform:
   m_ObjectHideFlags: 0
