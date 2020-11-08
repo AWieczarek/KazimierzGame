@@ -10,7 +10,7 @@ public class ObstacleSpawner : MonoBehaviour
     private Transform obstaclePosition;
     public GameObject[] obstaclePrefab;
     public GameObject[] NumberOfObstacle;
-    public GameObject manholePrefab;
+    public GameObject[] pickupPrefab;
 
     public float obstaclesLimit = 3;
 
@@ -49,7 +49,7 @@ public class ObstacleSpawner : MonoBehaviour
         switch(drawSlot)
         {
             case 0:
-                SpawnManhole(randomIndex);
+                SpawnPickUp(randomIndex);
                 obstaclePosition.position = updatePostion;
                 break;
             case 1:
@@ -58,7 +58,7 @@ public class ObstacleSpawner : MonoBehaviour
                 break;
             case 2:
                 Instantiate(obstaclePrefab[randomPrefab], spawnPoints[randomIndex].position, Quaternion.Euler(-90, 0, 0));
-                SpawnManhole(randomIndex);
+                SpawnPickUp(randomIndex);
                 obstaclePosition.position = updatePostion;
                 break;
             case 3:
@@ -74,14 +74,30 @@ public class ObstacleSpawner : MonoBehaviour
         }
     }
 
-    void SpawnManhole(int randomIndex)
+    void SpawnPickUp(int randomIndex)
     {
         int randomIndex1 = Random.Range(0, spawnPoints.Length);
+        int randomPrefab = Random.Range(0, pickupPrefab.Length);
         for (int i = 0; i < spawnPoints.Length; i++)
         {
+            Vector3 pos = new Vector3(spawnPoints[i].position.x, spawnPoints[i].position.y + 1.0f, spawnPoints[i].position.z);
             if (randomIndex1 == i && i != randomIndex)
             {
-                Instantiate(manholePrefab, spawnPoints[i].position, Quaternion.Euler(-90f, 0f, 0f));
+                switch(randomPrefab)
+				{
+                    case 0:
+                        Instantiate(pickupPrefab[0], spawnPoints[i].position, Quaternion.Euler(-90f, 0f, 0f));
+                        break;
+                    case 1:
+                        Instantiate(pickupPrefab[1], pos, Quaternion.Euler(-90f, -90f, 0f));
+                        break;
+                    case 2:
+                        Instantiate(pickupPrefab[2], pos, Quaternion.Euler(90f, 90f, 180f));
+                        break;
+                    case 3:
+                        Instantiate(pickupPrefab[3], pos, Quaternion.Euler(0f, 0f, 90f));
+                        break;
+                }       
             }
         }
     }
