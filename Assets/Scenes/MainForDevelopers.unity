@@ -2504,7 +2504,7 @@ MonoBehaviour:
   - {fileID: 7695664471191212192, guid: 2fa59383e5748394ea6694b58c354a91, type: 3}
   - {fileID: 2369881871970069991, guid: cf2af687ba18141429b259aab5bfbe47, type: 3}
   - {fileID: 3678231308510824416, guid: 719e5f347c18faa45bcb611ffdab8cbe, type: 3}
-  obstaclesLimit: 3
+  obstaclesLimit: 20
   timeToSpawn: 0
   distanceBetweenWawes: 20
 --- !u!4 &483701951
@@ -4355,7 +4355,7 @@ MonoBehaviour:
   NumberOfTrees:
   - {fileID: 1250690161900600, guid: e6f343cc46467004f811ce2ba3a3841b, type: 3}
   - {fileID: 1377331622712542, guid: b9eb627f7bb4c1748829f3f01ce72b68, type: 3}
-  treesLimit: 5
+  treesLimit: 20
   timeBetweenWawes: 0
   timeToSpawn: 1
 --- !u!4 &867069569
@@ -6027,7 +6027,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1078914058}
-  m_LocalRotation: {x: 0.18014748, y: 0.00000002587231, z: -0.0000000057356377, w: 0.98363966}
+  m_LocalRotation: {x: 0.18014748, y: 0.000000025872342, z: -0.0000000057358145, w: 0.98363966}
   m_LocalPosition: {x: 0, y: 8.61, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6689,7 +6689,7 @@ MonoBehaviour:
   carColor: {r: 0, g: 0, b: 0, a: 0}
   sounds:
   - name: Manhole
-    clip: {fileID: 8300000, guid: 5c2fa4ddb982a4a47bdd8543554fd88c, type: 3}
+    clip: {fileID: 8300000, guid: 1420c72b819ec3e49a838d0880f2355d, type: 3}
     audioMixer: {fileID: -5166661658439448278, guid: 70f9f3640baa430428d382c49d3bca40,
       type: 2}
     volume: 0.672
@@ -6697,23 +6697,47 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Kurwa
-    clip: {fileID: 8300000, guid: 0cd2f1d601128e74588f6cb09abc5aa0, type: 3}
+    clip: {fileID: 8300000, guid: 403261b750d798845afcfc4e08fc9c38, type: 3}
     audioMixer: {fileID: 115530344670735758, guid: 70f9f3640baa430428d382c49d3bca40,
       type: 2}
     volume: 1
-    pitch: 1
+    pitch: 2.089
     loop: 0
     source: {fileID: 0}
   - name: Ziu
-    clip: {fileID: 8300000, guid: d3cc6607b46189a40a71f68067f7bc34, type: 3}
+    clip: {fileID: 8300000, guid: afde10b55371d9545929929a96f81fad, type: 3}
     audioMixer: {fileID: 88280045912584120, guid: 70f9f3640baa430428d382c49d3bca40,
       type: 2}
     volume: 0.41
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: shild
+    clip: {fileID: 8300000, guid: 0230548502dd31b4591a20e5ebd06911, type: 3}
+    audioMixer: {fileID: -1420681221438311502, guid: 70f9f3640baa430428d382c49d3bca40,
+      type: 2}
+    volume: 0.187
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: boost
+    clip: {fileID: 8300000, guid: 2457c1e5acc7d6044ae241d3a59558ff, type: 3}
+    audioMixer: {fileID: -1420681221438311502, guid: 70f9f3640baa430428d382c49d3bca40,
+      type: 2}
+    volume: 0.187
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: coin
+    clip: {fileID: 8300000, guid: 66d6bb22326ffd742bbf2e839530412f, type: 3}
+    audioMixer: {fileID: -1420681221438311502, guid: 70f9f3640baa430428d382c49d3bca40,
+      type: 2}
+    volume: 0.187
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   - name: Theme
-    clip: {fileID: 8300000, guid: 9d44d10af177c764c90e086344e7b2ef, type: 3}
+    clip: {fileID: 8300000, guid: f5f00ad0ab645b541990c114052c1535, type: 3}
     audioMixer: {fileID: -1420681221438311502, guid: 70f9f3640baa430428d382c49d3bca40,
       type: 2}
     volume: 0.187
@@ -9767,7 +9791,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629755189}
-  m_LocalRotation: {x: 0.18014748, y: 0.00000002587231, z: -0.0000000057356377, w: 0.98363966}
+  m_LocalRotation: {x: 0.18014748, y: 0.000000025872342, z: -0.0000000057358145, w: 0.98363966}
   m_LocalPosition: {x: 0, y: 8.61, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -10417,6 +10441,7 @@ MonoBehaviour:
   playerPosition: {fileID: 5006512736719168631}
   HDistance: {fileID: 1451117571}
   highestDistance: 0
+  bonus: 1
 --- !u!114 &1757872909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12499,6 +12524,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3421527392346818789, guid: 60824fd70e59f4c4a992a93b5f7006fa,
+        type: 3}
+      propertyPath: speed
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6654728289734635259, guid: 60824fd70e59f4c4a992a93b5f7006fa,
         type: 3}

@@ -13,7 +13,7 @@ public class Boost : MonoBehaviour
 			GameObject.Find("car").GetComponent<PlayerMovement>().speed += speedBoost;
 
 			StartCoroutine(BoostTimeer());
-			FindObjectOfType<AudioManager>().Play("Manhole");
+			FindObjectOfType<AudioManager>().Play("boost");
 
 		}
 	}

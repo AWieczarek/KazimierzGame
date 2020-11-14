@@ -9,7 +9,7 @@ public class Coin : MonoBehaviour
 		if (collider.gameObject.tag == "Player")
 		{
 			PlayerPrefs.SetInt("money", PlayerPrefs.GetInt("money")+Random.Range(10,100));
-			FindObjectOfType<AudioManager>().Play("Manhole");
+			FindObjectOfType<AudioManager>().Play("coin");
 			Destroy(gameObject);
 		}
 	}
