@@ -3,10 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+[System.Serializable]
+public class Conversation
+{
+    public string name; //speaker's name
+    [TextArea(1, 3)] public string[] sentences; //their sentences
+}
+
 public class DialogueManager : MonoBehaviour
 {
-    private Queue<string> sentences;
 
+    public Dialogue[] conversations;
+    private Queue<string> sentences;
+    private int index = 0;
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
 
@@ -34,11 +43,11 @@ public class DialogueManager : MonoBehaviour
 		}
 
         DisplayNextSentence();
-	}
+    }
 
     public void DisplayNextSentence()
 	{
-        if(sentences.Count == 0)
+        if(sentences.Count <= 0)
 		{
             EndDialogue();
             return;
@@ -47,7 +56,8 @@ public class DialogueManager : MonoBehaviour
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
-	}
+        
+    }
 
     IEnumerator TypeSentence (string sentence)
 	{
@@ -61,8 +71,17 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
 	{
-        animator.SetBool("IsOpen", false);
-        //DialogueUI.SetActive(false);
+        index++;
+        if (index < conversations.Length)
+        {
+            StartDialogue(conversations[index]);
+            return;
+        }
+        else
+        {
+            Invoke("UnFreez", 0.5f);
+            animator.SetBool("IsOpen", false);
+        }
         UnFreez();
     }
 
@@ -77,4 +96,11 @@ public class DialogueManager : MonoBehaviour
         SwipeControl.GetComponent<SwipeInput>().enabled = true;
         Time.timeScale = 1.0f;
     }
+    public void TriggerDialogue()
+    {
+        index = 0;
+        StartDialogue(conversations[index]);
+    }
 }
+
+

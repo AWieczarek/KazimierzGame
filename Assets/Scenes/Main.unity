@@ -1327,7 +1327,11 @@ MonoBehaviour:
   EndScreenUI: {fileID: 304849038}
   DevMenu: {fileID: 1768852708}
   transmition: {fileID: 53993821}
+  menu: {fileID: 0}
+  camera: {fileID: 0}
+  isAnimation: 0
   transitionTime: 1
+  Car: {fileID: 0}
 --- !u!1 &324344772
 GameObject:
   m_ObjectHideFlags: 0
@@ -1857,8 +1861,7 @@ MonoBehaviour:
   - {fileID: 1296198054963878, guid: f76595434879f634c8b88f3cc4f08b2c, type: 3}
   - {fileID: 1923948107188124, guid: f16d978b3d1fa984d82c01d30a1fb40a, type: 3}
   - {fileID: 1923948107188124, guid: f16d978b3d1fa984d82c01d30a1fb40a, type: 3}
-  manholePrefab: {fileID: 673042384859517459, guid: c260db87f88f2ef41af90b052f9fef58,
-    type: 3}
+  pickupPrefab: []
   obstaclesLimit: 3
   timeToSpawn: 0
   distanceBetweenWawes: 65
@@ -2307,6 +2310,8 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: 70f9f3640baa430428d382c49d3bca40, type: 2}
   pauseMenuUI: {fileID: 709916597}
   optionsMenuUI: {fileID: 1584365090}
+  CreditsUI: {fileID: 0}
+  shopUI: {fileID: 0}
   menuUI: {fileID: 0}
 --- !u!1 &646029606
 GameObject:
@@ -4471,7 +4476,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1078914058}
-  m_LocalRotation: {x: 0.18014753, y: 0.0000000038881276, z: -7.1197453e-10, w: 0.9836396}
+  m_LocalRotation: {x: 0.1801475, y: -0.00000002568335, z: 0.0000000047038644, w: 0.9836396}
   m_LocalPosition: {x: 0, y: 8.61, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4747,6 +4752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20a7ea46feda6824385acedbb9c9b565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  carColor: {r: 0, g: 0, b: 0, a: 0}
   sounds:
   - name: Manhole
     clip: {fileID: 8300000, guid: 5c2fa4ddb982a4a47bdd8543554fd88c, type: 3}
@@ -6733,7 +6739,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629755189}
-  m_LocalRotation: {x: 0.18014753, y: 0.0000000038881276, z: -7.1197453e-10, w: 0.9836396}
+  m_LocalRotation: {x: 0.1801475, y: -0.00000002568335, z: 0.0000000047038644, w: 0.9836396}
   m_LocalPosition: {x: 0, y: 8.61, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -7003,6 +7009,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 1757872909}
   playerPosition: {fileID: 5006512736719168631}
+  HDistance: {fileID: 0}
+  highestDistance: 0
+  bonus: 1
 --- !u!114 &1757872909
 MonoBehaviour:
   m_ObjectHideFlags: 0

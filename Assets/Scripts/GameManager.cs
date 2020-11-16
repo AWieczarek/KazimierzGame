@@ -28,9 +28,27 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        
     }
 
-	private void Update() {
+    void Start()
+    {
+        if (PlayerPrefs.GetInt("tutorial") == 0) isAnimation = true;
+        else isAnimation = false;
+
+        if (isAnimation)
+        {
+            Invoke("Tutorial", 0.5f);
+            //menu.speed = 0f;
+            //menu.Play("StartMenuAnimation", 0, 1.0f);
+            //camera.speed = 0f;
+            //camera.Play("CameraAnimation", 0, 1.0f);
+            isAnimation = false;
+            PlayerPrefs.SetInt("tutorial", 1);
+        }
+    }
+
+    private void Update() {
         Car.GetComponent<Renderer>().materials[1].color = GameObject.Find("AudioManager").GetComponent<AudioManager>().carColor;
         if (Input.GetMouseButtonDown(0))
         {
@@ -39,14 +57,6 @@ public class GameManager : MonoBehaviour
             {
                 DevMenu.SetActive(false);
             }
-        }
-        
-        if(isAnimation)
-		{
-            menu.speed = 0f;
-            menu.Play("StartMenuAnimation", 0, 1.0f);
-            camera.speed = 0f;
-            camera.Play("CameraAnimation", 0, 1.0f);
         }
     }
    public void EndGame()
@@ -114,4 +124,10 @@ public class GameManager : MonoBehaviour
 	{
         isAnimation = true;
 	}
+
+    void Tutorial()
+    {
+
+        FindObjectOfType<DialogueManager>().TriggerDialogue();
+    }
 }
