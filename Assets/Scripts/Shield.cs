@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shield : MonoBehaviour
 {
 	float boostTime = 5f;
-	public MeshRenderer renderer;
+	public MeshRenderer Shieldrenderer;
 	void OnTriggerEnter(Collider collider)
 	{
 		if (collider.gameObject.tag == "Player")
@@ -14,7 +14,7 @@ public class Shield : MonoBehaviour
 			
 			StartCoroutine(BoostTimeer());
 			FindObjectOfType<AudioManager>().Play("shild");
-			renderer.enabled = false;
+			Shieldrenderer.enabled = false;
 		}
 	}
 

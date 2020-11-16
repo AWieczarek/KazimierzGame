@@ -8,7 +8,7 @@ public class pickingUp : MonoBehaviour
 	{
 		if (collider.gameObject.tag == "Player")
 		{
-			GameObject.Find("ScoreBoard").GetComponent<Score>().score += 1;
+			//GameObject.Find("ScoreBoard").GetComponent<Score>().score += 1;
 			GameObject.Find("RageBarPanel").GetComponent<RageBar>().rage += Random.Range(5,25);
 			FindObjectOfType<AudioManager>().Play("Manhole");
 			Destroy(gameObject);

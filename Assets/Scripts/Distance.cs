@@ -17,6 +17,7 @@ public class Distance : MonoBehaviour
         text = GetComponent<TextMeshProUGUI>();
         highestDistance = PlayerPrefs.GetFloat("HDistance");
         bonus = PlayerPrefs.GetFloat("bonus");
+        if(bonus <= 0) bonus = 1.0f;
     }
     
 

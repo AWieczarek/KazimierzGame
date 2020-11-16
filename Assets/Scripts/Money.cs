@@ -25,7 +25,7 @@ public class Money : MonoBehaviour
                 Colours[i, 1] = "1";
             }
         }
-        money = PlayerPrefs.GetInt("money", 0);
+        money = PlayerPrefs.GetInt("money");
     }
 
 	void Update()

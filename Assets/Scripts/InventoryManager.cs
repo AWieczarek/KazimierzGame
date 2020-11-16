@@ -20,6 +20,7 @@ public class InventoryManager : MonoBehaviour
             PanelBlock.SetActive(false);
         }
         bonus = PlayerPrefs.GetFloat("bonus");
+        PlayerPrefs.SetInt("bonusPrice", bonusPrice);
         bonusPrice = PlayerPrefs.GetInt("bonusPrice");
         price.text = bonusPrice.ToString();
     }

@@ -9,12 +9,12 @@ public class GameManager : MonoBehaviour
     public GameObject EndScreenUI;
     public GameObject DevMenu;
     public static GameManager instance;
-
     public Animator transmition;
     public Animator menu;
     public Animator camera;
 
-    public bool isAnimation = false;
+    public bool isAnimation = true;
+    public bool isTutorial = true;
 
     public float transitionTime = 1f;
 
@@ -33,23 +33,27 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        PlayerPrefs.SetInt("tutorial", 0);
         if (PlayerPrefs.GetInt("tutorial") == 0) isAnimation = true;
         else isAnimation = false;
-
         if (isAnimation)
-        {
+        { 
             Invoke("Tutorial", 0.5f);
-            //menu.speed = 0f;
-            //menu.Play("StartMenuAnimation", 0, 1.0f);
-            //camera.speed = 0f;
-            //camera.Play("CameraAnimation", 0, 1.0f);
             isAnimation = false;
             PlayerPrefs.SetInt("tutorial", 1);
         }
     }
 
     private void Update() {
-        Car.GetComponent<Renderer>().materials[1].color = GameObject.Find("AudioManager").GetComponent<AudioManager>().carColor;
+        if (isTutorial)
+        {
+            menu.speed = 0f;
+            menu.Play("StartMenuAnimation", 0, 1.0f);
+            camera.speed = 0f;
+            camera.Play("CameraAnimation", 0, 1.0f);
+        }
+
+            Car.GetComponent<Renderer>().materials[1].color = GameObject.Find("AudioManager").GetComponent<AudioManager>().carColor;
         if (Input.GetMouseButtonDown(0))
         {
             
@@ -122,7 +126,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayAnimation()
 	{
-        isAnimation = true;
+        isTutorial = true;
 	}
 
     void Tutorial()

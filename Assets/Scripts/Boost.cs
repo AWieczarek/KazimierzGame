@@ -6,7 +6,7 @@ public class Boost : MonoBehaviour
 {
 	float boostTime = 5f;
 	float speedBoost = 10;
-	public MeshRenderer renderer;
+	public MeshRenderer Boostrenderer;
 	void OnTriggerEnter(Collider collider)
 	{
 		if (collider.gameObject.tag == "Player")
@@ -15,7 +15,7 @@ public class Boost : MonoBehaviour
 
 			StartCoroutine(BoostTimeer());
 			FindObjectOfType<AudioManager>().Play("boost");
-			renderer.enabled = false;
+			Boostrenderer.enabled = false;
 		}
 	}
 
