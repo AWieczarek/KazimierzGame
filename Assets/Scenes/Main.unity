@@ -1653,6 +1653,30 @@ MonoBehaviour:
   isTutorial: 0
   transitionTime: 1
   Car: {fileID: 1090780963}
+  dialogue1:
+  - name: Kazimierz
+    sentences:
+    - "Tera jak mozesz szybko jecha\u0107 to nie jedziesz"
+  dialogue2:
+  - name: Kazimierz
+    sentences:
+    - "Gdzie tak p\u0119dzisz"
+    - "Jak b\u0119dziesz mia\u0142 prawo jazdy i sw\xF3j samochod to wtedy b\u0119dziesz
+      tak jed\u017Ai\u0142"
+  dialogue3:
+  - name: Kazimierz
+    sentences:
+    - "Ty nie patrz, \u017Ce wszyscy ci\u0119 wyprzedzaj\u0105 "
+    - "Ja mam 30lat prawo jazdy i tez mnie wyprzedzaj\u0105"
+  dialogue4:
+  - name: Kazimierz
+    sentences:
+    - "Noooo jak tak b\u0119dziesz jecha\u0107 to ja nie wiem jak zdasz"
+  dialogue5:
+  - name: Kazimierz
+    sentences:
+    - 'Noo tylko noga na gaz i dobrzodu '
+    - "Zero pomy\u015Blunku"
 --- !u!1 &324344772
 GameObject:
   m_ObjectHideFlags: 0
@@ -3446,7 +3470,7 @@ PrefabInstance:
         type: 3}
       propertyPath: input
       value: 
-      objectReference: {fileID: 754525643}
+      objectReference: {fileID: 0}
     - target: {fileID: 6654728289734635259, guid: 60824fd70e59f4c4a992a93b5f7006fa,
         type: 3}
       propertyPath: m_Name
@@ -3515,20 +3539,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 754525641}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &754525643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 754525642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 810a1483d9655c8428b8917abc300024, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  detectSwipeOnlyAfterRelease: 0
-  SWIPE_THRESHOLD: 20
 --- !u!95 &754525649
 Animator:
   serializedVersion: 3

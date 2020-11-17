@@ -17,8 +17,15 @@ public class GameManager : MonoBehaviour
     public bool isTutorial = false;
 
     public float transitionTime = 1f;
-
+    int timeToDialog = 5;
     public GameObject Car;
+
+    public Dialogue[] dialogue1;
+    public Dialogue[] dialogue2;
+    public Dialogue[] dialogue3;
+    public Dialogue[] dialogue4;
+    public Dialogue[] dialogue5;
+    int previousDialog;
 
     private void Awake() {
         if(instance == null)
@@ -53,7 +60,13 @@ public class GameManager : MonoBehaviour
             cameraAnimator.Play("CameraAnimation", 0, 1.0f);
         }
 
-            Car.GetComponent<Renderer>().materials[1].color = GameObject.Find("AudioManager").GetComponent<AudioManager>().carColor;
+        if(Time.time >= timeToDialog)
+		{
+            Invoke("Insults", 0.5f);
+            timeToDialog += Random.Range(10, 20);
+        }
+
+        Car.GetComponent<Renderer>().materials[1].color = GameObject.Find("AudioManager").GetComponent<AudioManager>().carColor;
         if (Input.GetMouseButtonDown(0))
         {
             
@@ -132,6 +145,34 @@ public class GameManager : MonoBehaviour
     void Tutorial()
     {
 
+        FindObjectOfType<DialogueManager>().TriggerDialogue();
+    }
+    void Insults()
+    {
+        int a = Random.Range(1, 5);
+        if(a == 1 && a != previousDialog)
+		{
+            FindObjectOfType<DialogueManager>().conversations = dialogue1;
+        }else if (a == 2 && a != previousDialog)
+        {
+            FindObjectOfType<DialogueManager>().conversations = dialogue2;
+        }
+        else if (a == 3 && a != previousDialog)
+        {
+            FindObjectOfType<DialogueManager>().conversations = dialogue3;
+        }
+        else if (a == 4 && a != previousDialog)
+        {
+            FindObjectOfType<DialogueManager>().conversations = dialogue4;
+        }
+        else if (a == 5 && a != previousDialog)
+        {
+            FindObjectOfType<DialogueManager>().conversations = dialogue5;
+        }else
+		{
+            a = Random.Range(1, 5);
+        }
+        previousDialog = a;
         FindObjectOfType<DialogueManager>().TriggerDialogue();
     }
 }
