@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.001
+  m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -1648,7 +1648,7 @@ MonoBehaviour:
   DevMenu: {fileID: 1768852708}
   transmition: {fileID: 1197821836}
   menu: {fileID: 0}
-  camera: {fileID: 0}
+  cameraAnimator: {fileID: 0}
   isAnimation: 1
   isTutorial: 0
   transitionTime: 1
@@ -2187,9 +2187,9 @@ MonoBehaviour:
   - {fileID: 7695664471191212192, guid: 2fa59383e5748394ea6694b58c354a91, type: 3}
   - {fileID: 2369881871970069991, guid: cf2af687ba18141429b259aab5bfbe47, type: 3}
   - {fileID: 3678231308510824416, guid: 719e5f347c18faa45bcb611ffdab8cbe, type: 3}
-  obstaclesLimit: 20
+  obstaclesLimit: 6
   timeToSpawn: 0
-  distanceBetweenWawes: 20
+  distanceBetweenWawes: 40
 --- !u!4 &483701951
 Transform:
   m_ObjectHideFlags: 0

@@ -13621,6 +13621,11 @@ PrefabInstance:
       propertyPath: CameraAnimator
       value: 
       objectReference: {fileID: 1078914061}
+    - target: {fileID: 4229122809391675321, guid: 184c92d01f0ad6b448b3f0d064968534,
+        type: 3}
+      propertyPath: cameraAnimator
+      value: 
+      objectReference: {fileID: 1078914061}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 184c92d01f0ad6b448b3f0d064968534, type: 3}
 --- !u!1001 &8312697073497462671

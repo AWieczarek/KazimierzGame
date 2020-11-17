@@ -76,8 +76,8 @@ public class ObstacleSpawner : MonoBehaviour
 
     void SpawnPickUp(int randomIndex)
     {
-        int randomIndex1 = Random.Range(0, spawnPoints.Length);
-        int randomPrefab = Random.Range(0, pickupPrefab.Length);
+        int randomIndex1 = Random.Range(0, spawnPoints.Length +2);
+        int randomPrefab = Random.Range(0, pickupPrefab.Length +2);
         for (int i = 0; i < spawnPoints.Length; i++)
         {
             Vector3 pos = new Vector3(spawnPoints[i].position.x, spawnPoints[i].position.y + 1.0f, spawnPoints[i].position.z);
@@ -96,6 +96,12 @@ public class ObstacleSpawner : MonoBehaviour
                         break;
                     case 3:
                         Instantiate(pickupPrefab[3], pos, Quaternion.Euler(0f, 0f, 90f));
+                        break;
+                    case 4:
+                        Instantiate(pickupPrefab[0], spawnPoints[i].position, Quaternion.Euler(-90f, 0f, 0f));
+                        break;
+                    case 5:
+                        Instantiate(pickupPrefab[0], spawnPoints[i].position, Quaternion.Euler(-90f, 0f, 0f));
                         break;
                 }       
             }

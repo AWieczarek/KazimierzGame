@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public Animator transmition;
     public Animator menu;
-    public Animator camera;
+    public Animator cameraAnimator;
 
     public bool isAnimation = false;
     public bool isTutorial = false;
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        PlayerPrefs.SetInt("tutorial", 0);
+        //PlayerPrefs.SetInt("tutorial", 0);
         if (PlayerPrefs.GetInt("tutorial") == 0 && SceneManager.GetActiveScene().buildIndex == 1) isTutorial = true;
         else isTutorial = false;
         if (isTutorial)
@@ -49,8 +49,8 @@ public class GameManager : MonoBehaviour
         {
             menu.speed = 0f;
             menu.Play("StartMenuAnimation", 0, 1.0f);
-            camera.speed = 0f;
-            camera.Play("CameraAnimation", 0, 1.0f);
+            cameraAnimator.speed = 0f;
+            cameraAnimator.Play("CameraAnimation", 0, 1.0f);
         }
 
             Car.GetComponent<Renderer>().materials[1].color = GameObject.Find("AudioManager").GetComponent<AudioManager>().carColor;

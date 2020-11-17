@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     public SwipeInput input;
 
-
+    public int x = 100;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +26,27 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(playerPosition.position.z >= x)
+		{
+            speed += 3;
+            if(GameObject.Find("ObstacleManager").GetComponent<ObstacleSpawner>().distanceBetweenWawes > 10)
+            {
+                GameObject.Find("ObstacleManager").GetComponent<ObstacleSpawner>().distanceBetweenWawes -= 3;
+            }
+            Debug.Log("Kupa");
+            if(x<1000)
+			{
+                GameObject.Find("ObstacleManager").GetComponent<ObstacleSpawner>().obstaclesLimit = 30;
+                x += 200;
+            }
+            else
+			{
+                x += 500;
+			}
+            
+		}
+
+
         Vector3 direction = new Vector3(0, 0, 1);
         Vector3 velocity = new Vector3(0, 0, direction.z * speed);
         controller.Move(velocity * Time.deltaTime);
