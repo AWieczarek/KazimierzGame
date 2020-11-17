@@ -2184,9 +2184,9 @@ MonoBehaviour:
   - {fileID: 1923948107188124, guid: f16d978b3d1fa984d82c01d30a1fb40a, type: 3}
   pickupPrefab:
   - {fileID: 673042384859517459, guid: c260db87f88f2ef41af90b052f9fef58, type: 3}
-  - {fileID: 7695664471191212192, guid: 2fa59383e5748394ea6694b58c354a91, type: 3}
-  - {fileID: 2369881871970069991, guid: cf2af687ba18141429b259aab5bfbe47, type: 3}
-  - {fileID: 3678231308510824416, guid: 719e5f347c18faa45bcb611ffdab8cbe, type: 3}
+  - {fileID: 959546871435152677, guid: 8ccd096c00f92424c87042fe87df7586, type: 3}
+  - {fileID: 6535089556916480786, guid: 500f45a7fbf6ea745bc32b8b5e32e6f6, type: 3}
+  - {fileID: 886401081830193464, guid: 5551c24688485bf4db997a75d717719f, type: 3}
   obstaclesLimit: 6
   timeToSpawn: 0
   distanceBetweenWawes: 40
@@ -3154,8 +3154,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 0.6886792, g: 0.625442, b: 0.4515397, a: 1}
+  m_Intensity: 1.82
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -3194,13 +3194,13 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 1
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 5.4732574e-10, z: 6.01e-43, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 5.187e-41, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -3437,6 +3437,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3421527392346818786, guid: 60824fd70e59f4c4a992a93b5f7006fa,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3421527392346818789, guid: 60824fd70e59f4c4a992a93b5f7006fa,
         type: 3}
       propertyPath: input

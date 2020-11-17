@@ -89,13 +89,13 @@ public class ObstacleSpawner : MonoBehaviour
                         Instantiate(pickupPrefab[0], spawnPoints[i].position, Quaternion.Euler(-90f, 0f, 0f));
                         break;
                     case 1:
-                        Instantiate(pickupPrefab[1], pos, Quaternion.Euler(-90f, -90f, 0f));
+                        Instantiate(pickupPrefab[1], pos, Quaternion.identity);
                         break;
                     case 2:
-                        Instantiate(pickupPrefab[2], pos, Quaternion.Euler(90f, 90f, 180f));
+                        Instantiate(pickupPrefab[2], pos, Quaternion.identity);
                         break;
                     case 3:
-                        Instantiate(pickupPrefab[3], pos, Quaternion.Euler(0f, 0f, 90f));
+                        Instantiate(pickupPrefab[3], pos, Quaternion.identity);
                         break;
                     case 4:
                         Instantiate(pickupPrefab[0], spawnPoints[i].position, Quaternion.Euler(-90f, 0f, 0f));
