@@ -4052,6 +4052,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1546299374241533821, guid: b0438b4a38b61a64b8148ef83e82814e,
+        type: 3}
+      propertyPath: m_Name
+      value: Bonus
+      objectReference: {fileID: 0}
     - target: {fileID: 6158781890116333223, guid: b0438b4a38b61a64b8148ef83e82814e,
         type: 3}
       propertyPath: m_Color.r
@@ -12248,6 +12253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carColor: {r: 1, g: 0.08627451, b: 0.13725491, a: 0}
+  carBase: {fileID: 2100000, guid: 5244449a5ac01684c9f32780ab1332c6, type: 2}
   sounds:
   - name: Manhole
     clip: {fileID: 8300000, guid: 1420c72b819ec3e49a838d0880f2355d, type: 3}

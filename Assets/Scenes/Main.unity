@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogColor: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.01
   m_LinearFogStart: 0
@@ -6523,6 +6523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carColor: {r: 0, g: 0, b: 0, a: 0}
+  carBase: {fileID: 2100000, guid: 5244449a5ac01684c9f32780ab1332c6, type: 2}
   sounds:
   - name: Manhole
     clip: {fileID: 8300000, guid: 1420c72b819ec3e49a838d0880f2355d, type: 3}

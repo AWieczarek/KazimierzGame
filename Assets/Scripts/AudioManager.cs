@@ -5,6 +5,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public Color carColor;
+    public Material carBase;
     public Sound[] sounds;
 
     public static AudioManager instance;
@@ -35,12 +36,12 @@ public class AudioManager : MonoBehaviour
     {
         Play("Theme");
         Play("Engine");
-        if (PlayerPrefs.GetString("CarColor") == "")
+        var storedColorAsString = "#" + PlayerPrefs.GetString("CarColor");
+        if (storedColorAsString == "#FFFFFFFF")
 		{
-            PlayerPrefs.SetString("CarColor", carColor.ToString());
+            storedColorAsString = "#" + ColorUtility.ToHtmlStringRGBA(carBase.color);
 
         }
-        var storedColorAsString = "#" + PlayerPrefs.GetString("CarColor");
         ColorUtility.TryParseHtmlString(storedColorAsString, out carColor);
     }
 

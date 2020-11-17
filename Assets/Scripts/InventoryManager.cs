@@ -27,11 +27,15 @@ public class InventoryManager : MonoBehaviour
 
 
 	public void ChangeColor()
-    {       
-        Car.GetComponent<Renderer>().materials[1].color = Image.GetComponent<UnityEngine.UI.Image>().material.color;
-        GameObject.Find("AudioManager").GetComponent<AudioManager>().carColor = Image.GetComponent<UnityEngine.UI.Image>().material.color;
-        //PlayerPrefs.SetString("CarColor", Image.GetComponent<UnityEngine.UI.Image>().material.name);
-        PlayerPrefs.SetString("CarColor", ColorUtility.ToHtmlStringRGBA(Image.GetComponent<UnityEngine.UI.Image>().material.color));
+    {
+        Debug.Log(gameObject.name);
+        if (gameObject.name != "bonus")
+        {
+            Car.GetComponent<Renderer>().materials[1].color = Image.GetComponent<UnityEngine.UI.Image>().material.color;
+            GameObject.Find("AudioManager").GetComponent<AudioManager>().carColor = Image.GetComponent<UnityEngine.UI.Image>().material.color;
+            //PlayerPrefs.SetString("CarColor", Image.GetComponent<UnityEngine.UI.Image>().material.name);
+            PlayerPrefs.SetString("CarColor", ColorUtility.ToHtmlStringRGBA(Image.GetComponent<UnityEngine.UI.Image>().material.color));
+        }
     }
     
     public void Unlock()
