@@ -6,34 +6,32 @@ using System.Threading;
 public class ObstacleSpawner : MonoBehaviour
 {
     public Transform[] spawnPoints;
-    public Transform player;
-    private Transform tf;
+    public Transform playerPosition;
+    private Transform obstaclePosition;
     public GameObject[] obstaclePrefab;
     public GameObject[] NumberOfObstacle;
-    public GameObject manholePrefab;
-
-
+    public GameObject[] pickupPrefab;
     public float obstaclesLimit = 3;
 
-    public float timeBetweenWawes = 0f;
+    [SerializeField] private float timeToSpawn = -100f;
 
-    public float timeToSpawn = 1f;
+    public int distanceBetweenWawes = 65;
 
     void Start()
     {
-        tf = GetComponent<Transform>();
-        player = GetComponent<Transform>();
+        obstaclePosition = GetComponent<Transform>();
+        playerPosition = GetComponent<Transform>();
     }
 
     private void Update()
     {
-        if (Time.time >= timeToSpawn)
+        if (Time.time >= timeToSpawn/100)
         {
             NumberOfObstacle = GameObject.FindGameObjectsWithTag("obstacle");
             if(NumberOfObstacle.Length < obstaclesLimit)
             {
                 SpawnObstacle();
-                timeToSpawn = Time.time + timeBetweenWawes;
+                timeToSpawn = Time.time;
             }
 
         }
@@ -41,39 +39,69 @@ public class ObstacleSpawner : MonoBehaviour
 
     void SpawnObstacle()
     {
-        int randomIndex = Random.Range(0, spawnPoints.Length);
-        int spawnChance = Random.Range(0, 3);
+        int randomIndex = Random.Range(0, spawnPoints.Length - 1);
         int randomPrefab = Random.Range(0, obstaclePrefab.Length);
+        int drawSlot = Random.Range(0,4);
+        Vector3 updatePostion = new Vector3(obstaclePosition.position.x, obstaclePosition.position.y, obstaclePosition.position.z + distanceBetweenWawes);
+        int sceondObstacle = randomIndex + Random.Range(1,2);
 
-        for (int i = 0; i < spawnPoints.Length; i++)
-        {
-            if (randomIndex == i)
+        switch (drawSlot)
             {
-                if (spawnChance == 0)
-                {
-                    Instantiate(obstaclePrefab[randomPrefab], spawnPoints[i].position, Quaternion.Euler(-90, 0, 0));
-
-                    tf.position = new Vector3(tf.position.x, tf.position.y, tf.position.z + 65);
-                }
-                else
-                {
-                    Instantiate(obstaclePrefab[randomPrefab], spawnPoints[i].position, Quaternion.Euler(-90, 0, 0));
-                    SpawnManhole(randomIndex);
-                    tf.position = new Vector3(tf.position.x, tf.position.y, tf.position.z + 65);
-                }
+                case 0:
+                    SpawnPickUp(randomIndex);
+                    obstaclePosition.position = updatePostion;
+                    break;
+                case 1:
+                    Instantiate(obstaclePrefab[randomPrefab], spawnPoints[randomIndex].position, Quaternion.Euler(-90, 0, 0));
+                    obstaclePosition.position = updatePostion;
+                    break;
+                case 2:
+                    Instantiate(obstaclePrefab[randomPrefab], spawnPoints[randomIndex].position, Quaternion.Euler(-90, 0, 0));
+                    SpawnPickUp(randomIndex);
+                    obstaclePosition.position = updatePostion;
+                    break;
+                case 3:
+                    if (sceondObstacle > 3)
+                    {
+                        sceondObstacle = 1;
+                    }
+                    Instantiate(obstaclePrefab[randomPrefab], spawnPoints[randomIndex].position, Quaternion.Euler(-90, 0, 0));
+                    Instantiate(obstaclePrefab[randomPrefab], spawnPoints[sceondObstacle].position, Quaternion.Euler(-90, 0, 0));
+                    obstaclePosition.position = updatePostion;
+                    break;
             }
-        }
     }
 
-    void SpawnManhole(int randomIndex)
+    void SpawnPickUp(int randomIndex)
     {
-        int randomIndex1 = Random.Range(0, spawnPoints.Length);
-
+        int randomIndex1 = Random.Range(0, spawnPoints.Length +2);
+        int randomPrefab = Random.Range(0, pickupPrefab.Length +2);
         for (int i = 0; i < spawnPoints.Length; i++)
         {
-            if (randomIndex1 == i && i != randomIndex)
+            Vector3 pos = new Vector3(spawnPoints[i].position.x, spawnPoints[i].position.y + 1.0f, spawnPoints[i].position.z);
+            if (randomIndex1 == i)
             {
-                Instantiate(manholePrefab, spawnPoints[i].position, Quaternion.Euler(-90f, 0f, 0f));
+                switch(randomPrefab)
+				{
+                    case 0:
+                        Instantiate(pickupPrefab[0], spawnPoints[i].position, Quaternion.Euler(-90f, 0f, 0f));
+                        break;
+                    case 1:
+                        Instantiate(pickupPrefab[1], pos, Quaternion.identity);
+                        break;
+                    case 2:
+                        Instantiate(pickupPrefab[2], pos, Quaternion.identity);
+                        break;
+                    case 3:
+                        Instantiate(pickupPrefab[3], pos, Quaternion.identity);
+                        break;
+                    case 4:
+                        Instantiate(pickupPrefab[0], spawnPoints[i].position, Quaternion.Euler(-90f, 0f, 0f));
+                        break;
+                    case 5:
+                        Instantiate(pickupPrefab[0], spawnPoints[i].position, Quaternion.Euler(-90f, 0f, 0f));
+                        break;
+                }       
             }
         }
     }

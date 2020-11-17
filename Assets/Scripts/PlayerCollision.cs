@@ -5,39 +5,21 @@ using UnityEngine;
 public class PlayerCollision : MonoBehaviour
 {
     public PlayerMovement movement;
-    bool dieing = true;
-    public Developer developer;
 
+    public bool isShield = false;
 
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
-       if(hit.collider.tag == "obstacle")
+       if(hit.collider.tag == "obstacle" && isShield == false)
         {
-            if(dieing)
-            {
-                if(developer.enabled == false)
-                {
-                    movement.enabled = false;
-                    FindObjectOfType<GameManager>().EndGame();
-                }
-                else
-                {
-                    movement.enabled = false;
-                    FindObjectOfType<GameManager>().EndGameDevelopers();
-                }
-            }
+            FindObjectOfType<AudioManager>().Play("Kurwa");
+            movement.enabled = false;
+            FindObjectOfType<GameManager>().EndGame();
         }
-    }
 
-    public void DieOff()
-    {
-        if (dieing)
-        {
-            dieing = false;
-        }
-        else
-        {
-            dieing = true;
-        }
+       if(isShield)
+	    {
+            hit.collider.enabled = false;
+		}
     }
 }

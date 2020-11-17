@@ -5,18 +5,18 @@ using TMPro;
 
 public class ObstaclesLimit : MonoBehaviour
 {
-    public GameObject manager;
-    public TextMeshProUGUI limit;
+    public GameObject obstacleManager ;
+    public TextMeshProUGUI text;
 
     void Start()
     {
-        limit = GetComponent<TextMeshProUGUI>();
-        manager = GameObject.FindGameObjectWithTag("obstacleManager");
+        text = GetComponent<TextMeshProUGUI>();
+        obstacleManager = GameObject.FindGameObjectWithTag("obstacleManager");
     }
 
     // Update is called once per frame
     void Update()
     {
-        limit.text = manager.GetComponent<ObstacleSpawner>().obstaclesLimit.ToString();
+        text.text = obstacleManager.GetComponent<ObstacleSpawner>().obstaclesLimit.ToString();
     }
 }

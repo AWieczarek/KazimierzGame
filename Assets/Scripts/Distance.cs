@@ -5,19 +5,36 @@ using TMPro;
 
 public class Distance : MonoBehaviour
 {
-    public TextMeshProUGUI distance;
-    public Transform tf;
+    public TextMeshProUGUI text;
+    public Transform playerPosition;
+    public TextMeshProUGUI HDistance;
+    public float highestDistance = 0;
+    float finalDistance;
+    public float bonus = 1.0f;
 
     void Start()
     {
-        distance = GetComponent<TextMeshProUGUI>();
-
+        text = GetComponent<TextMeshProUGUI>();
+        highestDistance = PlayerPrefs.GetFloat("HDistance");
+        bonus = PlayerPrefs.GetFloat("bonus");
+        if(bonus <= 0) bonus = 1.0f;
     }
+    
 
     // Update is called once per frame
     void Update()
     {
-        float finalDistance = tf.position.z / 100;
-        distance.text = finalDistance.ToString("F") + "km";
+        finalDistance = (playerPosition.position.z * bonus) / 100;
+        text.text = finalDistance.ToString("F") + "km";
+        HDistance.text = highestDistance.ToString("F") + "km";
+    }
+
+    public void UpdateHDistance()
+    {
+        if (finalDistance > highestDistance)
+        {
+            highestDistance = finalDistance;
+            PlayerPrefs.SetFloat("HDistance", highestDistance);
+        }
     }
 }
