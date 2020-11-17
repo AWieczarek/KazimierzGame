@@ -12,6 +12,7 @@ public class ObstacleSpawner : MonoBehaviour
     public GameObject[] NumberOfObstacle;
     public GameObject manholePrefab;
 
+
     public float obstaclesLimit = 3;
 
     public float timeBetweenWawes = 0f;
