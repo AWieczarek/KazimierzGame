@@ -34,7 +34,8 @@ public class AudioManager : MonoBehaviour
     private void Start() 
     {
         Play("Theme");
-        if(PlayerPrefs.GetString("CarColor") == "")
+        Play("Engine");
+        if (PlayerPrefs.GetString("CarColor") == "")
 		{
             PlayerPrefs.SetString("CarColor", carColor.ToString());
 

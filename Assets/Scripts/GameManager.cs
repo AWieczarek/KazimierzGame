@@ -13,8 +13,8 @@ public class GameManager : MonoBehaviour
     public Animator menu;
     public Animator camera;
 
-    public bool isAnimation = true;
-    public bool isTutorial = true;
+    public bool isAnimation = false;
+    public bool isTutorial = false;
 
     public float transitionTime = 1f;
 
@@ -34,18 +34,18 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         PlayerPrefs.SetInt("tutorial", 0);
-        if (PlayerPrefs.GetInt("tutorial") == 0) isAnimation = true;
-        else isAnimation = false;
-        if (isAnimation)
+        if (PlayerPrefs.GetInt("tutorial") == 0 && SceneManager.GetActiveScene().buildIndex == 1) isTutorial = true;
+        else isTutorial = false;
+        if (isTutorial)
         { 
             Invoke("Tutorial", 0.5f);
-            isAnimation = false;
+            isTutorial = false;
             PlayerPrefs.SetInt("tutorial", 1);
         }
     }
 
     private void Update() {
-        if (isTutorial)
+        if (isAnimation && SceneManager.GetActiveScene().buildIndex == 0)
         {
             menu.speed = 0f;
             menu.Play("StartMenuAnimation", 0, 1.0f);
@@ -126,7 +126,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayAnimation()
 	{
-        isTutorial = true;
+        isAnimation = true;
 	}
 
     void Tutorial()
