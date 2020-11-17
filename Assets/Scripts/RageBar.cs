@@ -8,7 +8,7 @@ public class RageBar : MonoBehaviour
 	public int rage = 0;
 	RectTransform panelRectTransform;
 	public Animator animator;
-	bool angry = false;
+	public bool angry = false;
 	public GameObject Angry;
 	public GameObject VAngry;
 
@@ -27,7 +27,7 @@ public class RageBar : MonoBehaviour
 		//x+=10;
 		RageUpdate();
 
-		if (rage > 50 && rage < 150 && isDisplayedAngry == true)
+		if (rage > 25 && rage < 75 && isDisplayedAngry == true)
 		{
 			angry = true;
 			Angry.SetActive(true);
@@ -36,7 +36,7 @@ public class RageBar : MonoBehaviour
 			Invoke("AngryOff", 5.0f);
 		}
 
-		if (rage > 150 && isDisplayedVAngry == true)
+		if (rage > 75 && isDisplayedVAngry == true)
 		{
 			angry = true;
 			VAngry.SetActive(true);
@@ -51,9 +51,9 @@ public class RageBar : MonoBehaviour
 
 	void RageUpdate()
 	{
-		if(rage > 200)
+		if(rage > 100)
 		{
-			rage -= 200;
+			rage -= 100;
 			isDisplayedAngry = true;
 			isDisplayedVAngry = true;
 		}

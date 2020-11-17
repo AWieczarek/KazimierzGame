@@ -3748,7 +3748,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 30, y: 200}
+  m_SizeDelta: {x: 25, y: 98}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &797584168
 MonoBehaviour:
@@ -3960,7 +3960,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 32, y: 202}
+  m_SizeDelta: {x: 27, y: 100}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &821795787
 MonoBehaviour:
@@ -4035,7 +4035,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -116, y: 85.2}
+  m_AnchoredPosition: {x: 124.2, y: 245.9}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &828862207
@@ -4053,6 +4053,7 @@ MonoBehaviour:
   panel: {fileID: 797584167}
   rage: 0
   animator: {fileID: 752737516}
+  angry: 0
   Angry: {fileID: 222091801}
   VAngry: {fileID: 829046381}
 --- !u!1 &829046381
@@ -12507,7 +12508,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 4.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1446439525 stripped

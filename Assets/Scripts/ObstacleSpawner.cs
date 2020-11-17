@@ -11,7 +11,6 @@ public class ObstacleSpawner : MonoBehaviour
     public GameObject[] obstaclePrefab;
     public GameObject[] NumberOfObstacle;
     public GameObject[] pickupPrefab;
-
     public float obstaclesLimit = 3;
 
     [SerializeField] private float timeToSpawn = -100f;
@@ -45,33 +44,32 @@ public class ObstacleSpawner : MonoBehaviour
         int drawSlot = Random.Range(0,4);
         Vector3 updatePostion = new Vector3(obstaclePosition.position.x, obstaclePosition.position.y, obstaclePosition.position.z + distanceBetweenWawes);
         int sceondObstacle = randomIndex + Random.Range(1,2);
-        
-        switch(drawSlot)
-        {
-            case 0:
-                SpawnPickUp(randomIndex);
-                obstaclePosition.position = updatePostion;
-                break;
-            case 1:
-                Instantiate(obstaclePrefab[randomPrefab], spawnPoints[randomIndex].position, Quaternion.Euler(-90, 0, 0));
-                obstaclePosition.position = updatePostion;
-                break;
-            case 2:
-                Instantiate(obstaclePrefab[randomPrefab], spawnPoints[randomIndex].position, Quaternion.Euler(-90, 0, 0));
-                SpawnPickUp(randomIndex);
-                obstaclePosition.position = updatePostion;
-                break;
-            case 3:
-                if(sceondObstacle > 3)
-                {
-                    sceondObstacle = 1;
-                }
-                Instantiate(obstaclePrefab[randomPrefab], spawnPoints[randomIndex].position, Quaternion.Euler(-90, 0, 0));
-                Instantiate(obstaclePrefab[randomPrefab], spawnPoints[sceondObstacle].position, Quaternion.Euler(-90, 0, 0));
-                obstaclePosition.position = updatePostion;
-                break;
 
-        }
+        switch (drawSlot)
+            {
+                case 0:
+                    SpawnPickUp(randomIndex);
+                    obstaclePosition.position = updatePostion;
+                    break;
+                case 1:
+                    Instantiate(obstaclePrefab[randomPrefab], spawnPoints[randomIndex].position, Quaternion.Euler(-90, 0, 0));
+                    obstaclePosition.position = updatePostion;
+                    break;
+                case 2:
+                    Instantiate(obstaclePrefab[randomPrefab], spawnPoints[randomIndex].position, Quaternion.Euler(-90, 0, 0));
+                    SpawnPickUp(randomIndex);
+                    obstaclePosition.position = updatePostion;
+                    break;
+                case 3:
+                    if (sceondObstacle > 3)
+                    {
+                        sceondObstacle = 1;
+                    }
+                    Instantiate(obstaclePrefab[randomPrefab], spawnPoints[randomIndex].position, Quaternion.Euler(-90, 0, 0));
+                    Instantiate(obstaclePrefab[randomPrefab], spawnPoints[sceondObstacle].position, Quaternion.Euler(-90, 0, 0));
+                    obstaclePosition.position = updatePostion;
+                    break;
+            }
     }
 
     void SpawnPickUp(int randomIndex)
@@ -81,7 +79,7 @@ public class ObstacleSpawner : MonoBehaviour
         for (int i = 0; i < spawnPoints.Length; i++)
         {
             Vector3 pos = new Vector3(spawnPoints[i].position.x, spawnPoints[i].position.y + 1.0f, spawnPoints[i].position.z);
-            if (randomIndex1 == i && i != randomIndex)
+            if (randomIndex1 == i)
             {
                 switch(randomPrefab)
 				{

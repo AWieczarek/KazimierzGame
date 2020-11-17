@@ -33,7 +33,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 GameObject.Find("ObstacleManager").GetComponent<ObstacleSpawner>().distanceBetweenWawes -= 3;
             }
-            Debug.Log("Kupa");
             if(x<1000)
 			{
                 GameObject.Find("ObstacleManager").GetComponent<ObstacleSpawner>().obstaclesLimit = 30;

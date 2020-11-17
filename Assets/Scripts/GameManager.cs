@@ -62,7 +62,16 @@ public class GameManager : MonoBehaviour
 
         if(Time.time >= timeToDialog)
 		{
-            Invoke("Insults", 0.5f);
+            if(GameObject.Find("RageBarPanel").GetComponent<RageBar>().angry)
+			{
+                Invoke("Insults", 5.5f);
+                Debug.Log("Dupa");
+            }
+            else
+			{
+                Invoke("Insults", 0.5f);
+            }
+            
             timeToDialog += Random.Range(10, 20);
         }
 
