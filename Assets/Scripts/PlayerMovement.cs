@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public SwipeInput input;
 
     public int x = 100;
-    // Start is called before the first frame update
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -23,7 +23,6 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(playerPosition.position.z >= x)

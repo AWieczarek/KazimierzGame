@@ -11,7 +11,6 @@ public class Shield : MonoBehaviour
 		if (collider.gameObject.tag == "Player")
 		{
 			GameObject.Find("car").GetComponent<PlayerCollision>().isShield = true;
-			
 			StartCoroutine(BoostTimeer());
 			FindObjectOfType<AudioManager>().Play("shild");
 			Shieldrenderer.enabled = false;

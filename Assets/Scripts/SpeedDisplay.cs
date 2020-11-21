@@ -14,7 +14,6 @@ public class SpeedDisplay : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    // Update is called once per frame
     void Update()
     {
         text.text = player.GetComponent<PlayerMovement>().speed.ToString();

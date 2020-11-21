@@ -6,8 +6,8 @@ using TMPro;
 [System.Serializable]
 public class Conversation
 {
-    public string name; //speaker's name
-    [TextArea(1, 3)] public string[] sentences; //their sentences
+    public string name;
+    [TextArea(1, 3)] public string[] sentences;
 }
 
 public class DialogueManager : MonoBehaviour
@@ -30,7 +30,6 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         sentences = new Queue<string>();
-        
     }
 
     public void StartDialogue (Dialogue dialogue)

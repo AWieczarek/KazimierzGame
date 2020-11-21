@@ -33,7 +33,6 @@ public class InventoryManager : MonoBehaviour
         {
             Car.GetComponent<Renderer>().materials[1].color = Image.GetComponent<UnityEngine.UI.Image>().material.color;
             GameObject.Find("AudioManager").GetComponent<AudioManager>().carColor = Image.GetComponent<UnityEngine.UI.Image>().material.color;
-            //PlayerPrefs.SetString("CarColor", Image.GetComponent<UnityEngine.UI.Image>().material.name);
             PlayerPrefs.SetString("CarColor", ColorUtility.ToHtmlStringRGBA(Image.GetComponent<UnityEngine.UI.Image>().material.color));
         }
     }
@@ -54,7 +53,6 @@ public class InventoryManager : MonoBehaviour
                 PanelBlock.SetActive(false);
                 bonus += 1;
                 PlayerPrefs.SetFloat("bonus", bonus);
-                Debug.Log(PlayerPrefs.GetFloat("bonus"));
                 PlayerPrefs.SetInt("money", GameObject.Find("PanelEq").GetComponent<Money>().money);
                 bonusPrice += 200;
                 PlayerPrefs.SetInt("bonusPrice", bonusPrice);

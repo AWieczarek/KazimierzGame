@@ -20,8 +20,6 @@ public class Distance : MonoBehaviour
         if(bonus <= 0) bonus = 1.0f;
     }
     
-
-    // Update is called once per frame
     void Update()
     {
         finalDistance = (playerPosition.position.z * bonus) / 100;

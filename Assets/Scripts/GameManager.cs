@@ -71,7 +71,6 @@ public class GameManager : MonoBehaviour
             if(GameObject.Find("RageBarPanel").GetComponent<RageBar>().angry  || isTutorial)
 			{
                 Invoke("Insults", 5.5f);
-                Debug.Log("Dupa");
             }
             else
 			{
@@ -105,39 +104,29 @@ public class GameManager : MonoBehaviour
 
     public void StartGameForDevelopers(){
         StartCoroutine(LoadLevel(2));
-        //SceneManager.LoadScene(2); 
         Time.timeScale = 1.0f;
         }
 
     public void StartGame(){
         StartCoroutine(LoadLevel(1));
-        //SceneManager.LoadScene(1); 
         Time.timeScale = 1.0f;
     }
 
     public void Restart()
     {
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex));
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1.0f;
     }
 
     public void Menu()
     {
         StartCoroutine(LoadLevel(0));
-        //SceneManager.LoadScene(0);
         Time.timeScale = 1.0f;
     }
 
     public void Quit()
     {
         Application.Quit();
-    }
-
-    public void Test()
-    {
-        Debug.Log("Kupa");
-
     }
 
     public void Dev()

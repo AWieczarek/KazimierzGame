@@ -14,7 +14,7 @@ public class ObstaclesLimit : MonoBehaviour
         obstacleManager = GameObject.FindGameObjectWithTag("obstacleManager");
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         text.text = obstacleManager.GetComponent<ObstacleSpawner>().obstaclesLimit.ToString();

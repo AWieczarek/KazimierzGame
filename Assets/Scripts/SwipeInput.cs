@@ -40,16 +40,12 @@ private Vector2 fingerDown;
     public bool SwipeUp {get{return swipeUp;}}
     public bool SwipeDown {get{return swipeDown;}}
 
-    // Update is called once per frame
     void Update()
     {
         tap = doubleTap = swipeLeft = swipeRight = swipeUp = swipeDown = false;
 
         UpdateMobile();
     }
-
-    
-
 
     private void UpdateMobile()
     {
@@ -74,28 +70,26 @@ private Vector2 fingerDown;
 
     void checkSwipe()
     {
-        //Check if Vertical swipe
         if (verticalMove() > SWIPE_THRESHOLD && verticalMove() > horizontalValMove())
         {
-            if (fingerDown.y - fingerUp.y > 0)//up swipe
+            if (fingerDown.y - fingerUp.y > 0)
             {
 				swipeUp = true;
             }
-            else if (fingerDown.y - fingerUp.y < 0)//Down swipe
+            else if (fingerDown.y - fingerUp.y < 0)
             {
 				swipeDown = true;
             }
             fingerUp = fingerDown;
         }
 
-        //Check if Horizontal swipe
         else if (horizontalValMove() > SWIPE_THRESHOLD && horizontalValMove() > verticalMove())
         {
-            if (fingerDown.x - fingerUp.x > 0)//Right swipe
+            if (fingerDown.x - fingerUp.x > 0)
             {
 				swipeRight = true;
             }
-            else if (fingerDown.x - fingerUp.x < 0)//Left swipe
+            else if (fingerDown.x - fingerUp.x < 0)
             {
 				swipeLeft = true;
             }

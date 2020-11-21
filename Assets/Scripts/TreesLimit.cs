@@ -13,8 +13,6 @@ public class TreesLimit: MonoBehaviour
         text = GetComponent<TextMeshProUGUI>();
         treeManager = GameObject.FindGameObjectWithTag("treeManager");
     }
-
-    // Update is called once per frame
     void Update()
     {
         text.text = treeManager.GetComponent<TreeSpawner>().treesLimit.ToString();

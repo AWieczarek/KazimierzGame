@@ -24,7 +24,6 @@ public class RageBar : MonoBehaviour
 
 	private void Update()
 	{
-		//x+=10;
 		RageUpdate();
 
 		if (rage > 25 && rage < 75 && isDisplayedAngry == true)
@@ -44,8 +43,6 @@ public class RageBar : MonoBehaviour
 			Invoke("AngryOff", 5.0f);
 			isDisplayedVAngry = false;
 		}
-
-		
 	}
 
 
