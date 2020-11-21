@@ -51,7 +51,7 @@ public class RageBar : MonoBehaviour
 
 	void RageUpdate()
 	{
-		if(rage > 100)
+		if(rage >= 100)
 		{
 			rage -= 100;
 			isDisplayedAngry = true;

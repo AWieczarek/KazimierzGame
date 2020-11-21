@@ -79,7 +79,8 @@ public class ObstacleSpawner : MonoBehaviour
         for (int i = 0; i < spawnPoints.Length; i++)
         {
             Vector3 pos = new Vector3(spawnPoints[i].position.x, spawnPoints[i].position.y + 1.0f, spawnPoints[i].position.z);
-            if (randomIndex1 == i)
+
+            if (randomIndex1 == i && i != randomIndex)
             {
                 switch(randomPrefab)
 				{

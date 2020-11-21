@@ -37,15 +37,14 @@ public class AudioManager : MonoBehaviour
         Play("Theme");
         Play("Engine");
         var storedColorAsString = "#" + PlayerPrefs.GetString("CarColor");
-        if (storedColorAsString == "#FFFFFFFF")
+        if(storedColorAsString == "#")
 		{
             storedColorAsString = "#" + ColorUtility.ToHtmlStringRGBA(carBase.color);
-
         }
         ColorUtility.TryParseHtmlString(storedColorAsString, out carColor);
     }
 
-    public void Play (string name)
+	public void Play (string name)
     {
         Sound s = Array.Find(sounds, sounds => sounds.name == name);
         if(s == null)

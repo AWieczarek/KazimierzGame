@@ -24,6 +24,9 @@ public class DialogueManager : MonoBehaviour
 
     public Animator animator;
 
+    public GameObject AdamAvatar;
+    public GameObject KazimierzAvatar;
+
     void Start()
     {
         sentences = new Queue<string>();
@@ -35,6 +38,11 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("IsOpen", true);
         Invoke("Freez", 0.5f);
         nameText.text = dialogue.name;
+        if(dialogue.name == "Adam")
+		{
+            KazimierzAvatar.SetActive(false);
+            AdamAvatar.SetActive(true);
+		}
         sentences.Clear();
 
         foreach (string sentence in dialogue.sentences)
@@ -71,6 +79,12 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
 	{
         index++;
+        if (AdamAvatar.activeSelf)
+        {
+            KazimierzAvatar.SetActive(true);
+            AdamAvatar.SetActive(false);
+        }
+
         if (index < conversations.Length)
         {
             StartDialogue(conversations[index]);
@@ -81,6 +95,7 @@ public class DialogueManager : MonoBehaviour
             Invoke("UnFreez", 0.5f);
             animator.SetBool("IsOpen", false);
         }
+        
         UnFreez();
     }
 

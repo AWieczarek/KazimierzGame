@@ -40,14 +40,20 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        //PlayerPrefs.DeleteAll();
         //PlayerPrefs.SetInt("tutorial", 0);
-        if (PlayerPrefs.GetInt("tutorial") == 0 && SceneManager.GetActiveScene().buildIndex == 1) isTutorial = true;
-        else isTutorial = false;
-        if (isTutorial)
+        if (PlayerPrefs.GetInt("tutorial") == 1)
+        {
+            isTutorial = false;
+        }
+        else
+        {
+            isTutorial = true;
+        }
+
+        if (isTutorial && SceneManager.GetActiveScene().buildIndex == 1)
         { 
             Invoke("Tutorial", 0.5f);
-            isTutorial = false;
-            PlayerPrefs.SetInt("tutorial", 1);
         }
     }
 
@@ -60,9 +66,9 @@ public class GameManager : MonoBehaviour
             cameraAnimator.Play("CameraAnimation", 0, 1.0f);
         }
 
-        if(Time.time >= timeToDialog)
+        if(Time.time >= timeToDialog && SceneManager.GetActiveScene().buildIndex == 1)
 		{
-            if(GameObject.Find("RageBarPanel").GetComponent<RageBar>().angry)
+            if(GameObject.Find("RageBarPanel").GetComponent<RageBar>().angry  || isTutorial)
 			{
                 Invoke("Insults", 5.5f);
                 Debug.Log("Dupa");
@@ -153,7 +159,8 @@ public class GameManager : MonoBehaviour
 
     void Tutorial()
     {
-
+        isTutorial = false;
+        PlayerPrefs.SetInt("tutorial", 1);
         FindObjectOfType<DialogueManager>().TriggerDialogue();
     }
     void Insults()

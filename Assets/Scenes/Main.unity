@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.28605664, g: 0.43651515, b: 0.8456937, a: 1}
+  m_IndirectSpecularColor: {r: 0.40248632, g: 0.5325432, b: 0.912726, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4541,7 +4541,7 @@ MonoBehaviour:
     - i nie zapierdalaj tak
   - name: Adam
     sentences:
-    - "Ale przecierz my jeszcze nie ruszyli\u015Bmy..."
+    - "Ale przecie\u017C my jeszcze nie ruszyli\u015Bmy..."
   - name: Kazimierz
     sentences:
     - "Dobra dobra jak b\u0119dziesz mia\u0142 tyle wyje\u017Cd\u017Aone co ja to
@@ -4551,6 +4551,8 @@ MonoBehaviour:
   DialogueUI: {fileID: 752737514}
   SwipeControl: {fileID: 754525642}
   animator: {fileID: 752737516}
+  AdamAvatar: {fileID: 1712009094}
+  KazimierzAvatar: {fileID: 1779152392}
 --- !u!4 &883171619
 Transform:
   m_ObjectHideFlags: 0
@@ -5298,6 +5300,7 @@ RectTransform:
   - {fileID: 1779152393}
   - {fileID: 222091802}
   - {fileID: 829046382}
+  - {fileID: 1712009095}
   m_Father: {fileID: 752737515}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6538,7 +6541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20a7ea46feda6824385acedbb9c9b565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carColor: {r: 0, g: 0, b: 0, a: 0}
+  carColor: {r: 1, g: 1, b: 1, a: 0}
   carBase: {fileID: 2100000, guid: 5244449a5ac01684c9f32780ab1332c6, type: 2}
   sounds:
   - name: Manhole
@@ -14758,6 +14761,81 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1701891122}
+  m_CullTransparentMesh: 0
+--- !u!1 &1712009094
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1712009095}
+  - component: {fileID: 1712009097}
+  - component: {fileID: 1712009096}
+  m_Layer: 5
+  m_Name: Adam
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1712009095
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712009094}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.1618001, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 974450196}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 6.4, y: 1.534}
+  m_SizeDelta: {x: 17.914318, y: 46.694023}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1712009096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712009094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 4ec2636663e04f5498eac469d3c99df9, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1712009097
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712009094}
   m_CullTransparentMesh: 0
 --- !u!1 &1736396645
 GameObject:
