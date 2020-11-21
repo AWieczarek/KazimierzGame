@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        //PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteAll();
         //PlayerPrefs.SetInt("tutorial", 0);
         if (PlayerPrefs.GetInt("tutorial") == 1)
         {

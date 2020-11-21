@@ -48,7 +48,7 @@ public class ObstacleSpawner : MonoBehaviour
         switch (drawSlot)
             {
                 case 0:
-                    SpawnPickUp(randomIndex);
+                    SpawnPickUp(randomIndex, drawSlot);
                     obstaclePosition.position = updatePostion;
                     break;
                 case 1:
@@ -57,7 +57,7 @@ public class ObstacleSpawner : MonoBehaviour
                     break;
                 case 2:
                     Instantiate(obstaclePrefab[randomPrefab], spawnPoints[randomIndex].position, Quaternion.Euler(-90, 0, 0));
-                    SpawnPickUp(randomIndex);
+                    SpawnPickUp(randomIndex, drawSlot);
                     obstaclePosition.position = updatePostion;
                     break;
                 case 3:
@@ -72,15 +72,15 @@ public class ObstacleSpawner : MonoBehaviour
             }
     }
 
-    void SpawnPickUp(int randomIndex)
+    void SpawnPickUp(int randomIndex, int drawSlot)
     {
         int randomIndex1 = Random.Range(0, spawnPoints.Length +2);
         int randomPrefab = Random.Range(0, pickupPrefab.Length +2);
         for (int i = 0; i < spawnPoints.Length; i++)
-        {
+        { 
             Vector3 pos = new Vector3(spawnPoints[i].position.x, spawnPoints[i].position.y + 1.0f, spawnPoints[i].position.z);
 
-            if (randomIndex1 == i && i != randomIndex)
+            if (randomIndex1 == i)
             {
                 switch(randomPrefab)
 				{
